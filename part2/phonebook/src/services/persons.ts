@@ -3,12 +3,16 @@ import {Person} from "../types";
 
 const baseUrl = 'http://localhost:3001/persons'
 
-const getAll = () => {
+const getAllPersons = () => {
     return axios.get<Person[]>(baseUrl)
 }
 
-const create = (newObject:Person) => {
+const createPerson = (newObject:Person) => {
     return axios.post(baseUrl, newObject)
+}
+
+const deletePerson = (id:number) =>{
+    return axios.delete(`${baseUrl}/${id}`)
 }
 
 // const update = (id, newObject) => {
@@ -16,7 +20,8 @@ const create = (newObject:Person) => {
 // }
 
 const personsService =  {
-    getAllPersons: getAll,
-    createPerson: create,
+    getAllPersons,
+    createPerson,
+    deletePerson
 }
 export default personsService
