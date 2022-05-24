@@ -19,3 +19,4 @@ const Persons = ({persons}: PersonsProps): JSX.Element => {
 };
 
 export default Persons;
+
