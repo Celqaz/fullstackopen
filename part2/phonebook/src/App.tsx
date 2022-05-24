@@ -7,6 +7,8 @@ import Persons from "./components/Persons";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
 
+// start server
+// npx json-server --port 3001 --watch db.json
 
 function App() {
     const [persons, setPersons] = useState<Person[]>([])
