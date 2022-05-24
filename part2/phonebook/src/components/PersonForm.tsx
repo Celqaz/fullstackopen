@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Person} from "../types";
-import axios from "axios";
+// services
+import personsService from '../services/persons'
 
 interface PersonFormProps {
     persons: Person[]
@@ -39,18 +40,21 @@ const PersonForm = ({persons, setPersons}: PersonFormProps): JSX.Element => {
      */
     const formSubmitHandler = (event: React.FormEvent): void => {
         event.preventDefault()
-        // if (persons.find(person => person.name === newName))
-        //     window.alert(`${newName} is already added to phonebook.`)
-        // else {
-        //     setPersons([...persons, {name: newName, number: newNumber}])
-        // }
-        axios
-            .post('http://localhost:3001/persons', {name: newName, number: newNumber})
-            .then(response => {
-                setPersons(persons.concat(response.data))
-                setNewName('')
-                setNewNumber('')
-            })
+        if (persons.find(person => person.name === newName))
+            window.alert(`${newName} is already added to phonebook.`)
+        else {
+            const newPerson : Person = {
+                name: newName,
+                number: newNumber
+            }
+            personsService
+                .createPerson(newPerson)
+                .then(response => {
+                    setPersons(persons.concat(response.data))
+                    setNewName('')
+                    setNewNumber('')
+                })
+        }
 
     }
 

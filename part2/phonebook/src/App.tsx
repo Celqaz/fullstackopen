@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios'
 //types
 import {Person} from "./types";
 //components
 import Persons from "./components/Persons";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
-
+// services
+import personsService from './services/persons'
 // start server
 // npx json-server --port 3001 --watch db.json
 
@@ -15,10 +15,9 @@ function App() {
 
     useEffect(() => {
         console.log('effect')
-        axios
-            .get<Person[]>('http://localhost:3001/persons')
+        personsService
+            .getAllPersons()
             .then((res) => {
-                console.log('Promise fullfilled')
                 setPersons(res.data)
             })
     }, [])
