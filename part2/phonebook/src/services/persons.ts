@@ -7,12 +7,17 @@ const getAllPersons = () => {
     return axios.get<Person[]>(baseUrl)
 }
 
-const createPerson = (newObject:Person) => {
-    return axios.post(baseUrl, newObject)
+const createPerson = (newPerson:Person) => {
+    return axios.post(baseUrl, newPerson)
 }
 
 const deletePerson = (id:number) =>{
     return axios.delete(`${baseUrl}/${id}`)
+}
+
+const updatePersonNumber = (newPerson: Person) =>{
+    console.log('update service',newPerson)
+    return axios.put(`${baseUrl}/${newPerson.id}`,newPerson)
 }
 
 // const update = (id, newObject) => {
@@ -22,6 +27,7 @@ const deletePerson = (id:number) =>{
 const personsService =  {
     getAllPersons,
     createPerson,
-    deletePerson
+    deletePerson,
+    updatePersonNumber
 }
 export default personsService

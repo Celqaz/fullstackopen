@@ -40,13 +40,22 @@ const PersonForm = ({persons, setPersons}: PersonFormProps): JSX.Element => {
      */
     const formSubmitHandler = (event: React.FormEvent): void => {
         event.preventDefault()
-        if (persons.find(person => person.name === newName))
-            window.alert(`${newName} is already added to phonebook.`)
+        const newPerson : Person = {
+            name: newName,
+            number: newNumber
+        }
+        const existedPerson = persons.find(person => person.name === newName)
+        if (existedPerson && window.confirm(`${newPerson.name} is already added to phonebook, replace the old number with the new one?`))
+            personsService
+                .updatePersonNumber({...newPerson,id:existedPerson.id})
+                .then(response => {
+                    console.log('update res',response.data)
+                    setPersons(persons.map(person=> person.id !== response.data.id ? person : response.data))
+                    // setPersons(persons.concat(response.data))
+                    setNewName('')
+                    setNewNumber('')
+                })
         else {
-            const newPerson : Person = {
-                name: newName,
-                number: newNumber
-            }
             personsService
                 .createPerson(newPerson)
                 .then(response => {
