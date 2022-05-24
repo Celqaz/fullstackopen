@@ -1,6 +1,11 @@
 import React from 'react';
+import {Part} from "../types";
 
-export default function Total({parts}) {
+interface TotalProps{
+    parts: Part[]
+}
+
+export default function Total({parts}:TotalProps) {
     return (
         <div>
             <b>

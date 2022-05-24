@@ -1,7 +1,8 @@
 import Course from "./components/Course";
+import {Courses} from "./types";
 
 const App = () => {
-    const courses = [
+    const courses:Courses[] = [
         {
             name: 'Half Stack application development',
             id: 1,
@@ -49,10 +50,9 @@ const App = () => {
 
     return (
         <div>
-        {courses.map(course =><Course key={course.name} course={course} /> )}
+            <Course courses={courses}/>
         </div>
     )
-
 }
 
 export default App
