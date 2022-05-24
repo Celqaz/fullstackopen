@@ -1,5 +1,6 @@
 import React from 'react';
 import {CountryInfo as CountryInfoType} from "../types";
+import GetWeather from "./GetWeather";
 
 interface CountryInfoProps {
     country: CountryInfoType
@@ -21,6 +22,8 @@ const CountryInfo = ({country}: CountryInfoProps): JSX.Element => {
                 {languages.map(language => <li key={language}>{language}</li> )}
             </ul>
             <img src={country.flags.png} alt={country.name.common+' flag'}/>
+            <h2>Weather in {country.capital}</h2>
+            <GetWeather capital={country.capital}/>
         </div>
     );
 };
