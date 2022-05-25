@@ -28,7 +28,7 @@ const data = [
         "number": "39-23-6423122"
     }
 ]
-app.get('/persons', (_req: Request, res: Response) => {
+app.get('/api/persons', (_req: Request, res: Response) => {
     res.json(data);
 });
 
