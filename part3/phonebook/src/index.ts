@@ -34,6 +34,16 @@ app.get('/api/persons', (_req: Request, res: Response) => {
     res.json(data);
 });
 
+app.get('/api/persons/:id', (_req: Request, res: Response) => {
+    const id = _req.params.id
+    const person: Person | undefined = data.find(person => person.id.toString() === id)
+    if (person) {
+        res.json(person);
+    }else{
+        res.status(404).end()
+    }
+});
+
 app.get('/info', (_req: Request, res: Response) => {
     const count = data.length
     const date = new Date()
