@@ -47,6 +47,8 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
             number: newNumber
         }
         const existedPerson = persons.find(person => person.name === newName)
+        // 如果输入的姓名已存在，则确认是否更新信息
+        // 否则则进行新增
         if (existedPerson && window.confirm(`${newPerson.name} is already added to phonebook, replace the old number with the new one?`))
             personsService
                 .updatePersonNumber({...newPerson,id:existedPerson.id})
@@ -54,6 +56,7 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                     console.log('update res',response.data)
                     setPersons(persons.map(person=> person.id !== response.data.id ? person : response.data))
                     // setPersons(persons.concat(response.data))
+                    console.log('res',response)
                     setMessage({message:`Updated ${response.data.name}`, type:MessageType.Success})
                     setTimeout(() => {
                         setMessage({message:'', type:MessageType.Blank})
@@ -67,6 +70,9 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                 .then(response => {
                     setPersons(persons.concat(response.data))
                     setMessage({message:`Added ${response.data.name}`, type:MessageType.Success})
+                    setTimeout(() => {
+                        setMessage({message:'', type:MessageType.Blank})
+                    }, 2000)
                     setNewName('')
                     setNewNumber('')
                 })

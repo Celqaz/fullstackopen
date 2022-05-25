@@ -1,4 +1,4 @@
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
 import cors from 'cors'
 // middleware
 import morgan from 'morgan'
@@ -104,9 +104,22 @@ app.post<Person>('/api/persons', (req, res) => {
     return res.json(newPerson)
 })
 
+//PUT a Person
+app.put<Person>('/api/persons/:id', (req, res) => {
+    const {body} = req
+
+    const newPerson: Person = {
+        name: body.name,
+        number: body.number,
+        id: body.id
+    }
+    persons.map(person => person.id === body.id ? person : newPerson)
+    return res.json(newPerson)
+});
+
 // DELETE a person by id
-app.delete('/api/persons/:id', (_req: Request, res: Response) => {
-    const id = _req.params.id
+app.delete('/api/persons/:id', (req, res) => {
+    const id = req.params.id
     persons = persons.filter(person => person.id.toString() !== id)
 
     res.status(204).end()
