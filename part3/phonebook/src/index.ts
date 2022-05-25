@@ -6,7 +6,7 @@ app.use(express.json());
 
 const PORT = 3001;
 
-
+// original data
 let persons: Person[] = [
     {
         "id": 1,
@@ -30,10 +30,12 @@ let persons: Person[] = [
     }
 ]
 
+// GET all persons
 app.get<Person[]>('/api/persons', (_req, res) => {
     res.json(persons);
 });
 
+// GET a person by id
 app.get<Person>('/api/persons/:id', (_req, res) => {
     const id = _req.params.id
     const person: Person | undefined = persons.find(person => person.id === id)
@@ -44,6 +46,7 @@ app.get<Person>('/api/persons/:id', (_req, res) => {
     }
 });
 
+// GET total number of persons
 app.get<Person>('/info', (_req, res) => {
     const count = persons.length
     const date = new Date()
@@ -53,14 +56,29 @@ app.get<Person>('/info', (_req, res) => {
     `)
 })
 
+// POST a new person
 app.post<Person>('/api/persons', (req, res) => {
     const {body} = req
 
     const id = Math.round(Math.random()*10000)
 
-    if (!body) {
+    /**
+     * if body ===null or doesn't have name or number
+     * return 400 stauts
+     */
+    if (!body || !body.name || !body.number) {
         res.status(400).json(
             {error: 'content missing.'}
+        )
+    }
+
+    /**
+     * if body.name existed in dababase
+     * retrun 400 status
+     */
+    if(persons.find(person=>person.name === body.name)){
+        res.status(400).json(
+            {error: 'name must be unique.'}
         )
     }
 
@@ -74,6 +92,7 @@ app.post<Person>('/api/persons', (req, res) => {
     res.json(newPerson)
 })
 
+// DELETE a person by id
 app.delete('/api/persons/:id', (_req: Request, res: Response) => {
     const id = _req.params.id
     console.log('id', id)
