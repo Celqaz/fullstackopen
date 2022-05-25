@@ -7,7 +7,7 @@ app.use(express.json());
 const PORT = 3001;
 
 
-const data: Person[] = [
+let data: Person[] = [
     {
         "id": 1,
         "name": "Arto Hellas",
@@ -39,7 +39,7 @@ app.get('/api/persons/:id', (_req: Request, res: Response) => {
     const person: Person | undefined = data.find(person => person.id.toString() === id)
     if (person) {
         res.json(person);
-    }else{
+    } else {
         res.status(404).end()
     }
 });
@@ -52,6 +52,16 @@ app.get('/info', (_req: Request, res: Response) => {
         <div>${date}</div>
     `)
 })
+
+
+app.delete('/api/persons/:id', (_req: Request, res: Response) => {
+    const id = _req.params.id
+    console.log('id',id)
+    data = data.filter(person => person.id.toString() !== id)
+    console.log('data',data)
+
+    res.status(204).end()
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
