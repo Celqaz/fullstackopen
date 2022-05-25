@@ -6,15 +6,17 @@ import personsService from '../services/persons'
 interface PersonFormProps {
     persons: Person[]
     setPersons: React.Dispatch<React.SetStateAction<Person[]>>
+    setMessage: React.Dispatch<React.SetStateAction<string>>
 }
 
 /**
  * 添加person的表单
  * @param persons，上层应用中的数据
  * @param setPersons，修改数据的方法
+ * @param setMessage
  * @constructor
  */
-const PersonForm = ({persons, setPersons}: PersonFormProps): JSX.Element => {
+const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Element => {
     const [newName, setNewName] = useState<string>('')
     const [newNumber, setNewNumber] = useState<string>('')
 
@@ -52,6 +54,10 @@ const PersonForm = ({persons, setPersons}: PersonFormProps): JSX.Element => {
                     console.log('update res',response.data)
                     setPersons(persons.map(person=> person.id !== response.data.id ? person : response.data))
                     // setPersons(persons.concat(response.data))
+                    setMessage(`Updated ${response.data.name}`)
+                    setTimeout(() => {
+                        setMessage('')
+                    }, 2000)
                     setNewName('')
                     setNewNumber('')
                 })
@@ -60,6 +66,7 @@ const PersonForm = ({persons, setPersons}: PersonFormProps): JSX.Element => {
                 .createPerson(newPerson)
                 .then(response => {
                     setPersons(persons.concat(response.data))
+                    setMessage(`Added ${response.data.name}`)
                     setNewName('')
                     setNewNumber('')
                 })

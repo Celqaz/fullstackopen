@@ -7,11 +7,15 @@ import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
 // services
 import personsService from './services/persons'
+import Notification from "./components/Notification";
+// style
+import './App.css'
 // start server
 // npx json-server --port 3001 --watch db.json
 
 function App() {
     const [persons, setPersons] = useState<Person[]>([])
+    const [message, setMessage] = useState<string>('')
 
     useEffect(() => {
         console.log('effect')
@@ -28,10 +32,11 @@ function App() {
 
     return (
         <div>
+            <Notification message={message}/>
             <h2>Phonebook</h2>
             <Filter filter={filter} setFilter={setFilter}/>
-            <h3>add a new</h3>
-            <PersonForm persons={persons} setPersons={setPersons}/>
+            <h3>Add a new</h3>
+            <PersonForm persons={persons} setPersons={setPersons} setMessage={setMessage}/>
             <h3>Numbers</h3>
             <Persons persons={filteredPersons} setPersons={setPersons}/>
         </div>

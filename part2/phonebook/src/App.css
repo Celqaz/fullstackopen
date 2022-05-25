@@ -1,0 +1,12 @@
+*{
+    /*border: 1px red solid;*/
+}
+
+.message{
+    border: green 2px solid;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    background-color: lightgray;
+    color: green;
+    padding: 1rem;
+}
