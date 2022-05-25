@@ -1,9 +1,16 @@
 import express, {Express, Request, Response} from 'express';
+import cors from 'cors'
+// middleware
 import morgan from 'morgan'
+// tpyes
 import {Person} from './types'
+
 
 const app: Express = express();
 app.use(express.json());
+app.use(cors({
+    origin: ['http://localhost:3000']
+}))
 
 // @ts-ignore
 morgan.token('body', (req, res) => JSON.stringify(req.body));
@@ -94,7 +101,7 @@ app.post<Person>('/api/persons', (req, res) => {
     }
 
     persons = persons.concat(newPerson)
-    return  res.json(newPerson)
+    return res.json(newPerson)
 })
 
 // DELETE a person by id

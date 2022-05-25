@@ -18,7 +18,6 @@ function App() {
     const [message, setMessage] = useState<Message>({message:'',type: MessageType.Blank})
 
     useEffect(() => {
-        console.log('effect')
         personsService
             .getAllPersons()
             .then((res) => {
@@ -27,7 +26,7 @@ function App() {
     }, [])
 
     const [filter, setFilter] = useState<string>('')
-
+    //
     const filteredPersons: Person[] = persons.filter(person => person.name.includes(filter))
 
     return (
