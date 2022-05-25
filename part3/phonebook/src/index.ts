@@ -1,8 +1,13 @@
 import express, {Express, Request, Response} from 'express';
+import morgan from 'morgan'
 import {Person} from './types'
 
 const app: Express = express();
 app.use(express.json());
+
+// @ts-ignore
+morgan.token('body', (req, res) => JSON.stringify(req.body));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 const PORT = 3001;
 
@@ -60,44 +65,42 @@ app.get<Person>('/info', (_req, res) => {
 app.post<Person>('/api/persons', (req, res) => {
     const {body} = req
 
-    const id = Math.round(Math.random()*10000)
+    const id = Math.round(Math.random() * 10000)
 
     /**
      * if body ===null or doesn't have name or number
      * return 400 stauts
      */
     if (!body || !body.name || !body.number) {
-        res.status(400).json(
+        return res.status(400).json(
             {error: 'content missing.'}
-        )
+        ).end()
     }
 
     /**
      * if body.name existed in dababase
      * retrun 400 status
      */
-    if(persons.find(person=>person.name === body.name)){
-        res.status(400).json(
+    if (persons.find(person => person.name === body.name)) {
+        return res.status(400).json(
             {error: 'name must be unique.'}
-        )
+        ).end()
     }
 
-    const newPerson:Person = {
+    const newPerson: Person = {
         "id": id,
-        "name":body.name,
-        "number":body.number
+        "name": body.name,
+        "number": body.number
     }
 
     persons = persons.concat(newPerson)
-    res.json(newPerson)
+    return  res.json(newPerson)
 })
 
 // DELETE a person by id
 app.delete('/api/persons/:id', (_req: Request, res: Response) => {
     const id = _req.params.id
-    console.log('id', id)
     persons = persons.filter(person => person.id.toString() !== id)
-    console.log('persons', persons)
 
     res.status(204).end()
 });
