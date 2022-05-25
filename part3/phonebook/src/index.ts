@@ -7,7 +7,7 @@ app.use(express.json());
 const PORT = 3001;
 
 
-let data: Person[] = [
+let persons: Person[] = [
     {
         "id": 1,
         "name": "Arto Hellas",
@@ -30,13 +30,13 @@ let data: Person[] = [
     }
 ]
 
-app.get('/api/persons', (_req: Request, res: Response) => {
-    res.json(data);
+app.get<Person[]>('/api/persons', (_req, res) => {
+    res.json(persons);
 });
 
-app.get('/api/persons/:id', (_req: Request, res: Response) => {
+app.get<Person>('/api/persons/:id', (_req, res) => {
     const id = _req.params.id
-    const person: Person | undefined = data.find(person => person.id.toString() === id)
+    const person: Person | undefined = persons.find(person => person.id === id)
     if (person) {
         res.json(person);
     } else {
@@ -44,8 +44,8 @@ app.get('/api/persons/:id', (_req: Request, res: Response) => {
     }
 });
 
-app.get('/info', (_req: Request, res: Response) => {
-    const count = data.length
+app.get<Person>('/info', (_req, res) => {
+    const count = persons.length
     const date = new Date()
     res.send(`
         <div>Phonebook has info of ${count} people</div>
@@ -53,12 +53,32 @@ app.get('/info', (_req: Request, res: Response) => {
     `)
 })
 
+app.post<Person>('/api/persons', (req, res) => {
+    const {body} = req
+
+    const id = Math.round(Math.random()*10000)
+
+    if (!body) {
+        res.status(400).json(
+            {error: 'content missing.'}
+        )
+    }
+
+    const newPerson:Person = {
+        "id": id,
+        "name":body.name,
+        "number":body.number
+    }
+
+    persons = persons.concat(newPerson)
+    res.json(newPerson)
+})
 
 app.delete('/api/persons/:id', (_req: Request, res: Response) => {
     const id = _req.params.id
-    console.log('id',id)
-    data = data.filter(person => person.id.toString() !== id)
-    console.log('data',data)
+    console.log('id', id)
+    persons = persons.filter(person => person.id.toString() !== id)
+    console.log('persons', persons)
 
     res.status(204).end()
 });

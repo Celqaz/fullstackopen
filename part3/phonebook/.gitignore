@@ -1,1 +1,7 @@
 /node_modules
+../../part2/.DS_Store
+../.DS_Store
+.eslintrc
+.idea/
+api.rest
+.gitignore
