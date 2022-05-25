@@ -1,4 +1,5 @@
 import express, {Express, Request, Response} from 'express';
+import {Person} from './types'
 
 const app: Express = express();
 app.use(express.json());
@@ -6,7 +7,7 @@ app.use(express.json());
 const PORT = 3001;
 
 
-const data = [
+const data: Person[] = [
     {
         "id": 1,
         "name": "Arto Hellas",
@@ -28,10 +29,19 @@ const data = [
         "number": "39-23-6423122"
     }
 ]
+
 app.get('/api/persons', (_req: Request, res: Response) => {
     res.json(data);
 });
 
+app.get('/info', (_req: Request, res: Response) => {
+    const count = data.length
+    const date = new Date()
+    res.send(`
+        <div>Phonebook has info of ${count} people</div>
+        <div>${date}</div>
+    `)
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
