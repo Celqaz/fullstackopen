@@ -1,7 +1,19 @@
-interface Person{
+interface Person {
     name: string;
-    number:string;
+    number: string;
     id?: number;
 }
 
-export type {Person}
+export enum MessageType {
+    Blank = "",
+    Success = 'message_success',
+    Failure = 'message_failure'
+
+}
+
+interface Message {
+    message: string
+    type: MessageType
+}
+
+export type {Person, Message}

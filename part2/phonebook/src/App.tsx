@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 //types
-import {Person} from "./types";
+import {Message, Person,MessageType} from "./types";
 //components
 import Persons from "./components/Persons";
 import Filter from "./components/Filter";
@@ -15,7 +15,7 @@ import './App.css'
 
 function App() {
     const [persons, setPersons] = useState<Person[]>([])
-    const [message, setMessage] = useState<string>('')
+    const [message, setMessage] = useState<Message>({message:'',type: MessageType.Blank})
 
     useEffect(() => {
         console.log('effect')
@@ -38,7 +38,7 @@ function App() {
             <h3>Add a new</h3>
             <PersonForm persons={persons} setPersons={setPersons} setMessage={setMessage}/>
             <h3>Numbers</h3>
-            <Persons persons={filteredPersons} setPersons={setPersons}/>
+            <Persons persons={filteredPersons} setPersons={setPersons} setMessage={setMessage}/>
         </div>
     );
 }

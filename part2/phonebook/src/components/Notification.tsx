@@ -1,7 +1,8 @@
 import React from 'react';
+import {Message} from "../types";
 
 interface NotificationProps {
-    message: string
+    message: Message
 }
 
 const Notification = ({message}: NotificationProps): JSX.Element | null=> {
@@ -9,7 +10,7 @@ const Notification = ({message}: NotificationProps): JSX.Element | null=> {
     /**
      * if errorMessage is null, render nothing.
      */
-    if (!message){
+    if (!message.message){
         return null
     }
 
@@ -17,8 +18,8 @@ const Notification = ({message}: NotificationProps): JSX.Element | null=> {
      * render error message with style
      */
     return (
-        <div className={'message'}>
-            {message}
+        <div className={`message ${message.type}`}>
+            {message.message}
         </div>
     );
 };

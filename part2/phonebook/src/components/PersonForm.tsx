@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Person} from "../types";
+import {Message, MessageType, Person} from "../types";
 // services
 import personsService from '../services/persons'
 
 interface PersonFormProps {
     persons: Person[]
     setPersons: React.Dispatch<React.SetStateAction<Person[]>>
-    setMessage: React.Dispatch<React.SetStateAction<string>>
+    setMessage: React.Dispatch<React.SetStateAction<Message>>
 }
 
 /**
@@ -54,9 +54,9 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                     console.log('update res',response.data)
                     setPersons(persons.map(person=> person.id !== response.data.id ? person : response.data))
                     // setPersons(persons.concat(response.data))
-                    setMessage(`Updated ${response.data.name}`)
+                    setMessage({message:`Updated ${response.data.name}`, type:MessageType.Success})
                     setTimeout(() => {
-                        setMessage('')
+                        setMessage({message:'', type:MessageType.Blank})
                     }, 2000)
                     setNewName('')
                     setNewNumber('')
@@ -66,7 +66,7 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                 .createPerson(newPerson)
                 .then(response => {
                     setPersons(persons.concat(response.data))
-                    setMessage(`Added ${response.data.name}`)
+                    setMessage({message:`Added ${response.data.name}`, type:MessageType.Success})
                     setNewName('')
                     setNewNumber('')
                 })

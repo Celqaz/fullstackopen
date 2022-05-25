@@ -1,12 +1,22 @@
-*{
+* {
     /*border: 1px red solid;*/
 }
 
-.message{
+.message {
     border: green 2px solid;
     border-radius: 0.5rem;
     font-weight: bold;
     background-color: lightgray;
     color: green;
-    padding: 1rem;
+    padding: 1rem
+}
+
+.message_success {
+    border-color: green;
+    color: green;
+}
+
+.message_failure {
+    border-color: red;
+    color: red;
 }
