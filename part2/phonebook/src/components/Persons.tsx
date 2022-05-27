@@ -23,7 +23,7 @@ const Persons = ({persons, setPersons,setMessage}: PersonsProps): JSX.Element =>
                 .deletePerson(deleteInfo.id)
                 .then((res) => {
                         console.log(res)
-                        if (res.status === 200) {
+                        if (res.status === 204) {
                             console.log('success')
                             setPersons(persons.filter(p => p.id !== deleteInfo.id))
                         } else {
