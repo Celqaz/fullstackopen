@@ -9,7 +9,7 @@ import {Person} from './types';
 const app: Express = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000']
+    origin: ['http://localhost:3000','https://fso3-phonebook.herokuapp.com']
 }));
 app.use(express.static('build'));
 

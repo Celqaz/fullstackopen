@@ -10,7 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: ['http://localhost:3000']
+    origin: ['http://localhost:3000', 'https://fso3-phonebook.herokuapp.com']
 }));
 app.use(express_1.default.static('build'));
 morgan_1.default.token('body', (req, _res) => JSON.stringify(req.body));
