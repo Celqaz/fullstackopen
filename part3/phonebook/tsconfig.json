@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "outDir": "./build/",
+    "outDir": "./server_build/",
     "module": "commonjs",
     "strict": true,
     "noUnusedLocals": true,
@@ -9,5 +9,14 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true
-  }
+  },
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts",
+  ]
 }
