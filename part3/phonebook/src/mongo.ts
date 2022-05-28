@@ -55,10 +55,4 @@ connectMongo().then(async () => {
         await queryMongo();
         await connection.close();
     }
-//     const user = new PhoneBook({
-//         name: process.argv[3],
-//         number: process.argv[4],
-//     });
-//     await user.save();
-//     console.log(user.name);
 ).catch(err => console.log(err));

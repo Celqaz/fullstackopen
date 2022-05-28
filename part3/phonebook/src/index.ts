@@ -4,6 +4,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 // types
 import {Person} from './types';
+// mongoose
+import {connect, model, Schema} from 'mongoose';
 
 
 const app: Express = express();
@@ -12,6 +14,34 @@ app.use(cors({
     origin: ['http://localhost:3000', 'https://fso3-phonebook.herokuapp.com']
 }));
 app.use(express.static('build'));
+
+
+// 1. Create an interface representing a document in MongoDB.
+interface PhoneBookType {
+    name: string,
+    number: string
+}
+
+// 2. Create a Schema corresponding to the document interface.
+const personSchema = new Schema<PhoneBookType>({
+    name: String,
+    number: String
+}, {collection: 'people'});
+
+// 3. Create a Model.
+const People = model<PhoneBookType>('People', personSchema);
+
+async function connectMongo() {
+    // 4. Connect to MongoDB
+    console.log('connecting');
+    const url =
+        `mongodb://blog_admin:b.YR1202@blog-shard-00-00.uucp7.mongodb.net:27017,blog-shard-00-01.uucp7.mongodb.net:27017,blog-shard-00-02.uucp7.mongodb.net:27017/PhoneBooks?&ssl=true&replicaSet=atlas-up1wck-shard-0&authSource=admin&retryWrites=true&w=majority`;
+    await connect(url)
+        .then(r=>console.log(r))
+        .catch(err => console.log(err));
+}
+
+connectMongo().catch(err => console.log(err));
 
 morgan.token('body', (req, _res) => JSON.stringify(req.body));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
@@ -42,7 +72,12 @@ let persons: Person[] = [
 
 // GET all persons
 app.get<Person[]>('/api/persons', (_req, res) => {
-    res.json(persons);
+    void People
+        .find({})
+        .then(persons => {
+            res.json(persons);
+        });
+    // res.json(persons);
 });
 
 // GET a person by id
