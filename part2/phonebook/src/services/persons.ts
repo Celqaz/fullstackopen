@@ -1,7 +1,8 @@
 import axios from "axios";
 import {Person} from "../types";
 
-const baseUrl = 'https://fso3-phonebook.herokuapp.com/api/persons'
+// const baseUrl = 'https://fso3-phonebook.herokuapp.com/api/persons'
+const baseUrl = 'http://localhost:3001/api/persons'
 
 const getAllPersons = () => {
     return axios.get<Person[]>(baseUrl)
