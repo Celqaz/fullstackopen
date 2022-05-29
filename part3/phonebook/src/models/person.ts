@@ -28,8 +28,15 @@ interface PhoneBookTypeInMongoDB {
 
 // 2. Create a Schema corresponding to the document interface.
 const personSchema = new Schema<PhoneBookType>({
-    name: String,
-    number: String
+    name: {
+        type: String,
+        minLength: 3,
+        required: true
+    },
+    number: {
+        type: String,
+        required: true
+    }
 }, {collection: 'people'});
 
 personSchema.set('toJSON', {

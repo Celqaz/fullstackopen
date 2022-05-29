@@ -76,6 +76,13 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                     setNewName('')
                     setNewNumber('')
                 })
+                .catch(error => {
+                    console.log(error.response.data)
+                    setMessage({message: error.response.data.error, type: MessageType.Failure})
+                    setTimeout(() => {
+                        setMessage({message:'', type:MessageType.Blank})
+                    }, 2000)
+                })
         }
 
     }
