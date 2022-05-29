@@ -1,4 +1,4 @@
-import express, {Express} from 'express';
+import express, {ErrorRequestHandler, Express, Request, Response} from 'express';
 import cors from 'cors';
 // middleware
 import morgan from 'morgan';
@@ -58,23 +58,21 @@ app.get<Person[]>('/api/persons', (_req, res) => {
 });
 
 // GET a person by id
-app.get<Person>('/api/persons/:id', (_req, res) => {
-    const id = _req.params.id;
-    console.log('id', id);
+app.get<Person>('/api/persons/:id', (req, res, next) => {
     People
-        .findById(id)
+        .findById(req.params.id)
         .then(person => {
-            console.log('person', person);
-            res.json(person);
+            if (person) {
+                res.json(person);
+            } else {
+                res.status(404).end();
+            }
         })
-        .catch(() => {
-            console.log('not found');
-            res.status(404).end();
-        });
+        .catch(error => next(error));
 });
 
 // GET total number of persons
-app.get<Person>('/info', (_req, res) => {
+app.get<Person>('/info', (_req, res, next) => {
     const date = new Date();
     People.count()
         .then(result => {
@@ -83,15 +81,13 @@ app.get<Person>('/info', (_req, res) => {
                     <div>${date}</div>
             `);
         })
-        .catch(e => console.log(e));
+        .catch(error => next(error));
 });
 
 // POST a new person
-app.post<Person>('/api/persons', (req, res) => {
+app.post<Person>('/api/persons', (req, res, next) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const body: Person = req.body;
-
-    // const id = Math.round(Math.random() * 10000);
 
     /**
      * if body ===null or doesn't have name or number
@@ -124,11 +120,11 @@ app.post<Person>('/api/persons', (req, res) => {
             persons = persons.concat(savedPerson);
             res.json(savedPerson);
         })
-        .catch(e => res.send(e));
+        .catch(error => next(error));
 });
 
 //PUT a Person
-app.put<Person>('/api/persons/:id', (req, res) => {
+app.put<Person>('/api/persons/:id', (req, res,next) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const body: Person = req.body;
 
@@ -137,17 +133,47 @@ app.put<Person>('/api/persons/:id', (req, res) => {
         number: body.number,
         id: body.id
     };
-    persons.map(person => person.id === body.id ? person : newPerson);
-    return res.json(newPerson);
+    People
+        .findByIdAndUpdate(req.params.id, newPerson, {new: true})
+        .then(updatedPerson => {
+            res.json(updatedPerson);
+        })
+        .catch(error => next(error));
 });
 
 // DELETE a person by id
-app.delete('/api/persons/:id', (req, res) => {
+app.delete('/api/persons/:id', (req, res, next) => {
     const id = req.params.id;
-    persons = persons.filter(person => person.id?.toString() !== id);
-
-    res.status(204).end();
+    People
+        .findByIdAndDelete(id)
+        .then(() => {
+            res.status(204).end();
+        })
+        .catch(error => next(error));
 });
+
+// middleware
+const unknownEndpoint = (_req: Request, res: Response) => {
+    // console.error('es',error.stack);
+    console.log('res', res);
+    res.status(404).send({error: 'unknown endpoint'});
+};
+
+// handler of requests with unknown endpoint
+app.use(unknownEndpoint);
+
+const errorHandler: ErrorRequestHandler = (error, _req, res, next) => {
+    console.error(error.message);
+
+    if (error.name === 'CastError' && error.kind === 'ObjectId') {
+        res.status(400).send({error: 'malformatted id'});
+    }
+    // 中间件将未定义的错误转发给缺省的 Express 错误处理程序。
+    next(error);
+};
+
+// 这是最后加载的中间件
+app.use(errorHandler);
 
 // const PORT = process.env.PORT || 3001;
 
