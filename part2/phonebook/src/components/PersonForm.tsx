@@ -53,16 +53,19 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
             personsService
                 .updatePersonNumber({...newPerson,id:existedPerson.id})
                 .then(response => {
-                    console.log('update res',response.data)
                     setPersons(persons.map(person=> person.id !== response.data.id ? person : response.data))
-                    // setPersons(persons.concat(response.data))
-                    console.log('res',response)
                     setMessage({message:`Updated ${response.data.name}`, type:MessageType.Success})
                     setTimeout(() => {
                         setMessage({message:'', type:MessageType.Blank})
                     }, 2000)
                     setNewName('')
                     setNewNumber('')
+                })
+                .catch(error => {
+                    setMessage({message: error.response.data.error, type: MessageType.Failure})
+                    setTimeout(() => {
+                        setMessage({message:'', type:MessageType.Blank})
+                    }, 2000)
                 })
         else {
             personsService
@@ -77,7 +80,6 @@ const PersonForm = ({persons, setPersons,setMessage}: PersonFormProps): JSX.Elem
                     setNewNumber('')
                 })
                 .catch(error => {
-                    console.log(error.response.data)
                     setMessage({message: error.response.data.error, type: MessageType.Failure})
                     setTimeout(() => {
                         setMessage({message:'', type:MessageType.Blank})

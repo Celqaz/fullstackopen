@@ -2,7 +2,7 @@ import {connect, model, Schema} from 'mongoose';
 // .env
 import {MONGODB_URI} from "../utils/config";
 // connect
-console.log('🪝 Connecting to MongoDB...');
+console.log(`🪝 Connecting to MongoDB...${MONGODB_URI}`);
 if (MONGODB_URI) {
     connect(MONGODB_URI)
         .then(() => console.log('📬 Successfully Connected to MongoDB'))

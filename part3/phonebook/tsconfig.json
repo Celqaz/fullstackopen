@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
+    "rootDir": "src",
     "outDir": "./server_build/",
     "module": "commonjs",
     "strict": true,
@@ -20,5 +21,6 @@
     "./node_modules",
     "./node_modules/*",
     "./node_modules/@types/node/index.d.ts",
+    "./server_build"
   ]
 }

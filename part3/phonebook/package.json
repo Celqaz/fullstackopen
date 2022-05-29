@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server_build/index.js",
+    "start": "NODE_ENV=production node server_build/index.js",
     "tsc": "tsc",
-    "dev": "ts-node-dev ./src/index.ts",
+    "dev": "NODE_ENV=dev ts-node-dev ./src/index.ts",
     "lint": "eslint --ext .ts ."
   },
   "keywords": [],
