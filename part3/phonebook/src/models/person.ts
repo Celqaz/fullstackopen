@@ -7,7 +7,7 @@ if (MONGODB_URI) {
     connect(MONGODB_URI)
         .then(() => console.log('📬 Successfully Connected to MongoDB'))
         .catch(err => console.log(err));
-}else {
+} else {
     throw 'MongoDB Uri undefined';
 }
 
@@ -15,7 +15,7 @@ if (MONGODB_URI) {
 interface PhoneBookType {
     name: string,
     number: string,
-    id?:string
+    id?: string
 }
 
 interface PhoneBookTypeInMongoDB {
@@ -35,7 +35,14 @@ const personSchema = new Schema<PhoneBookType>({
     },
     number: {
         type: String,
-        required: true
+        minLength: 8,
+        required: true,
+        validate: {
+            validator: function(v:string) {
+                return /(?=^.{8,}$)^\d{2,3}-\d{4,}/.test(v);
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
     }
 }, {collection: 'people'});
 
@@ -50,4 +57,18 @@ personSchema.set('toJSON', {
 });
 // 3. Create a Model.
 const People = model<PhoneBookType>('People', personSchema);
+//
+// People.schema.path('number').validate((value: string) => {
+//     return /\d{3}-\d{3}-\d{4}/.test(value);
+// }, 'Invalid number');
+// const opts = {runValidators: true};
+// let error;
+//
+// try {
+//     await People.findByIdAndUpdate({}, {number: 'not a number'}, opts);
+// } catch (err) {
+//     error = err;
+//     assert.equal(error.errors['number'].message, 'Invalid number');
+// }
+
 export default People;
