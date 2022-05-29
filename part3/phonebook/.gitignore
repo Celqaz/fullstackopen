@@ -5,3 +5,4 @@
 .idea/
 api.rest
 .gitignore
+.env

@@ -1,18 +1,17 @@
 import {connect, model, Schema} from 'mongoose';
-
+// .env
+import {MONGODB_URI} from "../utils/config";
 // connect
-async function connectMongo() {
-    // 4. Connect to MongoDB
-    console.log('🪝 Connecting to MongoDB...');
-    const url =
-        `mongodb://blog_admin:b.YR1202@blog-shard-00-00.uucp7.mongodb.net:27017,blog-shard-00-01.uucp7.mongodb.net:27017,blog-shard-00-02.uucp7.mongodb.net:27017/PhoneBooks?&ssl=true&replicaSet=atlas-up1wck-shard-0&authSource=admin&retryWrites=true&w=majority`;
-    await connect(url)
+console.log('🪝 Connecting to MongoDB...');
+if (MONGODB_URI) {
+    connect(MONGODB_URI)
         .then(() => console.log('📬 Successfully Connected to MongoDB'))
         .catch(err => console.log(err));
+}else {
+    throw 'MongoDB Uri undefined';
 }
 
-connectMongo().catch(err => console.log(err));
-
+// Model
 interface PhoneBookType {
     name: string,
     number: string

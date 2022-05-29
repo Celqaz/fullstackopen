@@ -12,7 +12,8 @@
   },
   "include": [
     "src/*",
-    "src/models/*"
+    "src/models/*",
+    "src/utils/*"
   ],
   "exclude": [
     "node_modules",
