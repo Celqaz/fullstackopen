@@ -1,8 +1,8 @@
 interface Person{
-    id:number,
+    id?:string,
     name:string,
     number:string
 }
 
 
-export type {Person}
+export type {Person};

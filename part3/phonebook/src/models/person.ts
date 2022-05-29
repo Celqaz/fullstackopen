@@ -14,7 +14,8 @@ if (MONGODB_URI) {
 // Model
 interface PhoneBookType {
     name: string,
-    number: string
+    number: string,
+    id?:string
 }
 
 interface PhoneBookTypeInMongoDB {

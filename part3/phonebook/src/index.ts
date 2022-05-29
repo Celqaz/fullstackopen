@@ -25,22 +25,22 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 // original data
 let persons: Person[] = [
     {
-        "id": 1,
+        "id": "1",
         "name": "Arto Hellas",
         "number": "040-123456"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Ada Lovelace",
         "number": "39-44-5323523"
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Dan Abramov",
         "number": "12-43-234345"
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Mary Poppendieck",
         "number": "39-23-6423122"
     }
@@ -53,32 +53,37 @@ app.get<Person[]>('/api/persons', (_req, res) => {
         .then(persons => {
             res.json(persons);
         })
-        .catch(e=>console.log(e));
+        .catch(e => console.log(e));
     // res.json(persons);
 });
 
 // GET a person by id
 app.get<Person>('/api/persons/:id', (_req, res) => {
     const id = _req.params.id;
-    const person: Person | undefined = persons.find(person => person.id === id);
-    if (person) {
-        res.json(person);
-    } else {
-        res.status(404).end();
-    }
+    console.log('id', id);
+    People
+        .findById(id)
+        .then(person => {
+            console.log('person', person);
+            res.json(person);
+        })
+        .catch(() => {
+            console.log('not found');
+            res.status(404).end();
+        });
 });
 
 // GET total number of persons
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
-app.get<Person>('/info',async (_req, res) => {
+app.get<Person>('/info', (_req, res) => {
     const date = new Date();
-    const peopleCount = await People.count()
-        .then(res => res)
-        .catch(e=>console.log(e));
-    res.send(`
-        <div>Phonebook has info of ${peopleCount} people</div>
-        <div>${date}</div>
-    `);
+    People.count()
+        .then(result => {
+            res.send(`
+                    <div>Phonebook has info of ${result} people</div>
+                    <div>${date}</div>
+            `);
+        })
+        .catch(e => console.log(e));
 });
 
 // POST a new person
@@ -86,14 +91,14 @@ app.post<Person>('/api/persons', (req, res) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const body: Person = req.body;
 
-    const id = Math.round(Math.random() * 10000);
+    // const id = Math.round(Math.random() * 10000);
 
     /**
      * if body ===null or doesn't have name or number
      * return 400 stauts
      */
     if (!body || !body.name || !body.number) {
-        return res.status(400).json(
+        res.status(400).json(
             {error: 'content missing.'}
         ).end();
     }
@@ -103,19 +108,23 @@ app.post<Person>('/api/persons', (req, res) => {
      * retrun 400 status
      */
     if (persons.find(person => person.name === body.name)) {
-        return res.status(400).json(
+        res.status(400).json(
             {error: 'name must be unique.'}
         ).end();
     }
 
-    const newPerson: Person = {
-        "id": id,
-        "name": body.name,
-        "number": body.number
-    };
+    const person = new People({
+        name: body.name,
+        number: body.number
+    });
 
-    persons = persons.concat(newPerson);
-    return res.json(newPerson);
+    person
+        .save()
+        .then(savedPerson => {
+            persons = persons.concat(savedPerson);
+            res.json(savedPerson);
+        })
+        .catch(e => res.send(e));
 });
 
 //PUT a Person
@@ -135,7 +144,7 @@ app.put<Person>('/api/persons/:id', (req, res) => {
 // DELETE a person by id
 app.delete('/api/persons/:id', (req, res) => {
     const id = req.params.id;
-    persons = persons.filter(person => person.id.toString() !== id);
+    persons = persons.filter(person => person.id?.toString() !== id);
 
     res.status(204).end();
 });
