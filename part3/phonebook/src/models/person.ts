@@ -57,18 +57,5 @@ personSchema.set('toJSON', {
 });
 // 3. Create a Model.
 const People = model<PhoneBookType>('People', personSchema);
-//
-// People.schema.path('number').validate((value: string) => {
-//     return /\d{3}-\d{3}-\d{4}/.test(value);
-// }, 'Invalid number');
-// const opts = {runValidators: true};
-// let error;
-//
-// try {
-//     await People.findByIdAndUpdate({}, {number: 'not a number'}, opts);
-// } catch (err) {
-//     error = err;
-//     assert.equal(error.errors['number'].message, 'Invalid number');
-// }
 
 export default People;
