@@ -1,7 +1,8 @@
-import { model, Schema} from 'mongoose';
+import {model, Schema} from 'mongoose';
 
 // Model
 interface BlogType {
+    id: string
     title: string,
     author: string,
     url: string,
@@ -21,22 +22,26 @@ interface BlogTypeInMongoDB {
 // 2. Create a Schema corresponding to the document interface.
 const blogSchema = new Schema<BlogType>({
     title: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     author: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     url: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
-    likes:{
-        type:Number,
-        required:true,
-        default:0
+    likes: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    id: {
+        type: String,
     }
+
     // author: {
     //     type: String,
     //     minLength: 8,

@@ -1,10 +1,17 @@
 interface Blog{
-    _id:string,
+    id?:string,
+    title:string,
+    author:string,
+    url:string,
+    likes?:number,
+}
+
+interface BlogInDB{
+    id:string,
     title:string,
     author:string,
     url:string,
     likes:number,
-    __v: 0
 }
 
 interface AuthorWithMostBlogs {
@@ -19,6 +26,7 @@ interface AuthorWithMostLikes {
 
 export type {
     Blog,
+    BlogInDB,
     AuthorWithMostBlogs,
     AuthorWithMostLikes
 }

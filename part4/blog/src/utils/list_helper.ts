@@ -6,7 +6,7 @@ const dummy = (_blogs: Blog[]) => {
 }
 
 const totalLikes = (blogs: Blog[]) => {
-    return _.sumBy(blogs, blog => blog.likes)
+    return _.sumBy(blogs, blog => blog.likes ? blog.likes :0)
 }
 
 const favoriteBlog = (blogs: Blog[]) => {
