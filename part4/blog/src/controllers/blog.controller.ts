@@ -1,12 +1,13 @@
 import BlogModel from "../models/blog.model";
 import {Router} from "express";
+import {Blog} from "../types";
 
 const blogRouter = Router()
 
 // blogRouter.get('/', (_request, response) => {
 //     response.json({'message':'hi there😉'})
 // })
-blogRouter.get('/', (_request, response) => {
+blogRouter.get<Blog[]>('/', (_request, response) => {
     BlogModel
         .find({})
         .then(blogs => {

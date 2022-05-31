@@ -7,9 +7,9 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-  "title": "创建JavaScript模块",
-  "author": "E. Eliot",
-  "url": "https://developer.mozilla.org/"
+  "title": "Test is fun",
+  "author": "F. Barkley",
+  "url": "https://lodash.com/docs/"
 }
 
 ###
