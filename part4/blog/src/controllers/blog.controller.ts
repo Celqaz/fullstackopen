@@ -46,6 +46,16 @@ blogRouter.post('/', async (request, response) => {
     response.status(201).json(newBlog)
 })
 
+// find by id and update
+blogRouter.post('/:id', async (request, response) => {
+    // const newBlog = new BlogModel(request.body)
+    const newLikes : number = request.body.likes
+
+    // const updatedBlog = await BlogModel.findByIdAndUpdate(request.params.id,newBlog,{new:true,runValidators:true})
+    const updatedBlog = await BlogModel.findByIdAndUpdate(request.params.id,{ $set: { likes: newLikes }},{new:true,runValidators:true})
+    response.status(200).json(updatedBlog)
+})
+
 // find by id and delete
 blogRouter.delete('/:id', async (request, response) => {
     await BlogModel.findByIdAndDelete(request.params.id)

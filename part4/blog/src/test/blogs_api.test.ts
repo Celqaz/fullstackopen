@@ -97,7 +97,6 @@ test('blog without title and url will not be added', async () => {
 test("get a blog by ID", async () => {
     const blogsAtStart: BlogType[] = await test_helper.blogsInDb()
 
-    console.log('blogsAtStart',blogsAtStart)
     const blogToView: BlogType = blogsAtStart[0]
 
     const resultBlog = await api
@@ -113,6 +112,24 @@ test("get a blog by ID", async () => {
      */
     const processedBlogToView = JSON.parse(JSON.stringify(blogToView))
     expect(resultBlog.body).toEqual(processedBlogToView)
+})
+
+test("updated a post's likes",async ()=>{
+    const blogsAtStart: BlogType[] = await test_helper.blogsInDb()
+
+    const blogToUpdate = blogsAtStart[0]
+
+    const newLikes = {
+        likes: 10
+    }
+
+    console.log('blogToView',blogToUpdate)
+
+    const updatedBlog = await api
+        .post(`/api/blogs/${blogToUpdate.id}`)
+        .send(newLikes)
+        .expect(200)
+    expect(updatedBlog.body.likes).toBe(10)
 })
 
 test("delete a blog by its Id",async ()=>{
