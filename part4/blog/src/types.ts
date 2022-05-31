@@ -9,10 +9,16 @@ interface Blog{
 
 interface AuthorWithMostBlogs {
     author: string
-    // author: Pick<Blog, "author">
     blogsCount:number
 }
+
+interface AuthorWithMostLikes {
+    author: string
+    likes:number
+}
+
 export type {
     Blog,
-    AuthorWithMostBlogs
+    AuthorWithMostBlogs,
+    AuthorWithMostLikes
 }

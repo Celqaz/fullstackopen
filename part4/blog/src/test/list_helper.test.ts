@@ -1,7 +1,7 @@
 import list_helper from "../utils/list_helper";
 import {Blog} from "../types";
 
-const testBlogs:Blog[] = [
+const testBlogs: Blog[] = [
     {
         _id: "5a422a851b54a676234d17f7",
         title: "React patterns",
@@ -59,8 +59,8 @@ describe("should sum the total likes", () => {
     })
 })
 
-describe("should return a post with most likes",()=>{
-    test('return a most likes post',()=>{
+describe("should return a post with most likes", () => {
+    test('return a most likes post', () => {
         const result = list_helper.favoriteBlog(testBlogs)
         const expectObj = {
             _id: "5a422b3a1b54a676234d17f9",
@@ -74,11 +74,23 @@ describe("should return a post with most likes",()=>{
     })
 })
 
-describe('should return an author with most bolgs',()=>{
-    test.only('return the author',()=>{
+describe('should return an author with most blogs', () => {
+    test('return the author with amount of posts', () => {
         const result = list_helper.mostBlogs(testBlogs)
-        const expectObj ={ author: 'Robert C. Martin', blogsCount: 3 }
+        const expectObj = {author: 'Robert C. Martin', blogsCount: 3}
 
+        expect(result).toEqual(expectObj)
+    })
+})
+
+
+describe('should return an author with most likes', () => {
+    test.only('return the author with likes', () => {
+        const result = list_helper.mostLikes(testBlogs)
+        const expectObj = {
+            author: "Edsger W. Dijkstra",
+            likes: 17
+        }
         expect(result).toEqual(expectObj)
     })
 })
