@@ -4,13 +4,16 @@ import {Router} from "express";
 import {User, UserInDB} from "../types";
 // bcrypt
 import bcrypt from "bcrypt"
+import {BlogModelType} from "../models/blog.model";
 
 require('express-async-errors')
 
 const userRouter = Router()
 
-userRouter.get<UserInDB[]>('/', (_request, response) => {
-    response.send('<h1>hi it\'s me</h1>')
+userRouter.get<UserInDB[]>('/', async (_request, response) => {
+    const allUsers = await UserModel.find({})
+        .populate<{ blogs: BlogModelType }>('blogs',{title:1,url:1,author:1})
+    response.json(allUsers)
 })
 
 userRouter.post<UserInDB>('/', async (request, response) => {

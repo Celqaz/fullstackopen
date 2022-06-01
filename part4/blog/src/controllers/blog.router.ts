@@ -1,4 +1,4 @@
-import BlogModel, {BlogType} from "../models/blog.model";
+import BlogModel, {BlogModelType} from "../models/blog.model";
 import UserModel, {UserReturnedMongoType} from "../models/user.model";
 import {Router} from "express";
 // @ts-ignore
@@ -19,7 +19,6 @@ blogRouter.get<Blog[]>('/', async (_request, response) => {
     //     .then(blogs => {
     //         response.json(blogs)
     //     })
-    console.log('get blogs')
     const allBlogs = await BlogModel.find({})
         .populate<{ user: UserReturnedMongoType }>('user',{username:1,name:1})
     response.json(allBlogs)
@@ -43,8 +42,9 @@ blogRouter.get<BlogInDB>('/:id', async (request, response) => {
 blogRouter.post('/', async (request, response) => {
     const body: Blog = request.body
     const user = await UserModel.findById(body.user)
+    console.log('post user',user)
     if (user) {
-        const blog = new BlogModel<BlogType>(
+        const blog = new BlogModel<BlogModelType>(
             {
                 title: body.title,
                 author: body.author,
@@ -61,7 +61,7 @@ blogRouter.post('/', async (request, response) => {
         const savedBlog = await blog.save()
 
         console.log('savedBlog',savedBlog)
-        user.blogs = user.blogs.concat(savedBlog.id)
+        user.blogs = user.blogs.concat(savedBlog._id)
         console.log('new user',await user.save())
 
         response.status(201).json(savedBlog)

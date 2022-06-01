@@ -20,7 +20,7 @@ describe("when there is initially one user in db", () => {
         console.log('cleared')
 
         const password = await bcrypt.hash('secret', 10)
-        const user = new UserModel({username: 'root', password})
+        const user = new UserModel({username: 'root',name:'Smart', password})
         await user.save()
 
         const initialBlogs: BlogBasicType[] = [
@@ -43,12 +43,14 @@ describe("when there is initially one user in db", () => {
         }
     })
 
-    test.only('get all blogs with username', async () => {
+    test('get all blogs with username', async () => {
         const result = await api
             .get('/api/blogs')
             .expect(200)
             .expect('Content-Type', /application\/json/)
         expect(result.body.length).toBe(2)
+        expect(result.body[0].user.username).toBe('root')
+        expect(result.body[0].user.name).toBe('Smart')
     })
     test('creation succeeds with a fresh username', async () => {
         const usersAtStart = await userTestHelper.usersInDB()
@@ -112,11 +114,12 @@ describe("when there is initially one user in db", () => {
         expect(usersAtEnd).toHaveLength(usersAtStart.length)
     })
 
-    test('can post a blog with username', async () => {
+    test.only('can post a blog with username', async () => {
         const usersAtStart :UserReturnedMongoType[] = await userTestHelper.usersInDB()
 
+        console.log('user start', usersAtStart)
         const newBlog: BlogBasicType = {
-            "title": "Full Stack Dev",
+            "title": "Post Successfully",
             "author": "L. Louis",
             "url": "https://meta.com/home",
             "user": usersAtStart[0].id

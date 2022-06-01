@@ -1,10 +1,10 @@
-import UserModel, {UserReturnedMongoType} from "../models/user.model";
+import UserModel from "../models/user.model";
 
 
 
 const usersInDB= async () => {
-    const users : UserReturnedMongoType[]= await UserModel.find({})
-    return users.map(user => user)
+    const users = await UserModel.find({})
+    return users.map(user => user.toJSON())
 }
 
 export default {usersInDB}

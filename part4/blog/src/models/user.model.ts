@@ -11,14 +11,14 @@ export interface UserReturnedMongoType {
     blogs: Types.ObjectId[],
 }
 
-export interface userTypeInMongoDB {
-    username: string,
-    name: string,
-    password: string,
-    _id?: Types.ObjectId,
-    __v?: string,
-    id?: string,
-}
+// export interface userTypeInMongoDB {
+//     username: string,
+//     name: string,
+//     password: string,
+//     _id?: Types.ObjectId,
+//     __v?: string,
+//     id?: string,
+// }
 
 // 2. Create a Schema corresponding to the document interface.
 const userSchema = new Schema<UserReturnedMongoType>({
@@ -47,7 +47,7 @@ const userSchema = new Schema<UserReturnedMongoType>({
 userSchema.plugin(uniqueValidator)
 
 userSchema.set('toJSON', {
-    transform: (_, returnedObject: userTypeInMongoDB) => {
+    transform: (_, returnedObject) => {
         if (returnedObject._id) {
             returnedObject.id = returnedObject._id.toString();
         }

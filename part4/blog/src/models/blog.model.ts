@@ -1,27 +1,27 @@
 import {model, Schema, Types} from 'mongoose';
 
 // Model
-export interface BlogType {
+export interface BlogModelType {
     id?: string
     title: string,
     author: string,
     url: string,
-    likes: number,
+    likes?: number,
     user: Types.ObjectId,
 }
 
-interface BlogTypeInMongoDB {
-    title: string,
-    author: string,
-    url: string,
-    likes: number
-    _id?: string,
-    __v?: string,
-    id?: string
-}
+// interface BlogTypeInMongoDB {
+//     title: string,
+//     author: string,
+//     url: string,
+//     likes: number
+//     _id?: string,
+//     __v?: string,
+//     id?: string
+// }
 
 // 2. Create a Schema corresponding to the document interface.
-const blogSchema = new Schema<BlogType>({
+const blogSchema = new Schema<BlogModelType>({
     title: {
         type: String,
         required: true
@@ -61,7 +61,7 @@ const blogSchema = new Schema<BlogType>({
 }, {collection: 'blog'});
 
 blogSchema.set('toJSON', {
-    transform: (_, returnedObject: BlogTypeInMongoDB) => {
+    transform: (_, returnedObject) => {
         if (returnedObject._id) {
             returnedObject.id = returnedObject._id.toString();
         }
@@ -70,6 +70,6 @@ blogSchema.set('toJSON', {
     }
 });
 // 3. Create a Model.
-const BlogModel = model<BlogType>('BlogModel', blogSchema);
+const BlogModel = model<BlogModelType>('BlogModel', blogSchema);
 
 export default BlogModel;
