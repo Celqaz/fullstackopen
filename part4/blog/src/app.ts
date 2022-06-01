@@ -32,7 +32,7 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 //router
 app.use('/api/blogs/', blogRouter)
-app.use('/api/user/', userRouter)
+app.use('/api/users/', userRouter)
 
 // error handling
 app.use(middleware.unknownEndpoint)

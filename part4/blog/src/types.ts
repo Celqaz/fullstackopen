@@ -1,9 +1,11 @@
+import {Types} from 'mongoose';
 interface Blog{
     id?:string,
     title:string,
     author:string,
     url:string,
     likes?:number,
+    user?: Types.ObjectId | string
 }
 
 interface BlogInDB{
@@ -16,7 +18,7 @@ interface BlogInDB{
 
 interface User{
     username:string
-    name:string
+    name?:string
     password:string
 }
 

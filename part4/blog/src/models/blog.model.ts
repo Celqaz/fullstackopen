@@ -1,8 +1,8 @@
 import {model, Schema, Types} from 'mongoose';
 
 // Model
-interface BlogType {
-    id: string
+export interface BlogType {
+    id?: string
     title: string,
     author: string,
     url: string,
@@ -44,7 +44,7 @@ const blogSchema = new Schema<BlogType>({
     },
     user:{
         type:Schema.Types.ObjectId,
-        ref:'user'
+        ref:'UserModel'
     }
 
     // author: {

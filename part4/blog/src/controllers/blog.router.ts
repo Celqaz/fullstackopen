@@ -1,6 +1,9 @@
-import BlogModel from "../models/blog.model";
+import BlogModel, {BlogType} from "../models/blog.model";
+import UserModel, {UserReturnedMongoType} from "../models/user.model";
 import {Router} from "express";
-import {Blog, BlogInDB} from "../types";
+// @ts-ignore
+import {Blog, BlogInDB, User} from "../types";
+
 
 require('express-async-errors')
 
@@ -16,7 +19,9 @@ blogRouter.get<Blog[]>('/', async (_request, response) => {
     //     .then(blogs => {
     //         response.json(blogs)
     //     })
+    console.log('get blogs')
     const allBlogs = await BlogModel.find({})
+        .populate<{ user: UserReturnedMongoType }>('user',{username:1,name:1})
     response.json(allBlogs)
 })
 
@@ -36,23 +41,45 @@ blogRouter.get<BlogInDB>('/:id', async (request, response) => {
 })
 
 blogRouter.post('/', async (request, response) => {
-    const blog = new BlogModel(request.body)
-    // blog
-    //     .save()
-    //     .then(result => {
-    //         response.status(201).json(result)
-    //     })
-    const newBlog = await blog.save()
-    response.status(201).json(newBlog)
+    const body: Blog = request.body
+    const user = await UserModel.findById(body.user)
+    if (user) {
+        const blog = new BlogModel<BlogType>(
+            {
+                title: body.title,
+                author: body.author,
+                url: body.url,
+                likes: body.likes === undefined ? 0 : body.likes,
+                user: user._id
+            }
+        )
+        // blog
+        //     .save()
+        //     .then(result => {
+        //         response.status(201).json(result)
+        //     })
+        const savedBlog = await blog.save()
+
+        console.log('savedBlog',savedBlog)
+        user.blogs = user.blogs.concat(savedBlog.id)
+        console.log('new user',await user.save())
+
+        response.status(201).json(savedBlog)
+    }else{
+        response.status(400).send('wrong')
+    }
 })
 
 // find by id and update
 blogRouter.post('/:id', async (request, response) => {
     // const newBlog = new BlogModel(request.body)
-    const newLikes : number = request.body.likes
+    const newLikes: number = request.body.likes
 
     // const updatedBlog = await BlogModel.findByIdAndUpdate(request.params.id,newBlog,{new:true,runValidators:true})
-    const updatedBlog = await BlogModel.findByIdAndUpdate(request.params.id,{ $set: { likes: newLikes }},{new:true,runValidators:true})
+    const updatedBlog = await BlogModel.findByIdAndUpdate(request.params.id, {$set: {likes: newLikes}}, {
+        new: true,
+        runValidators: true
+    })
     response.status(200).json(updatedBlog)
 })
 

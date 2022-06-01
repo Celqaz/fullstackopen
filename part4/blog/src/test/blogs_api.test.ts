@@ -4,7 +4,7 @@ import {app} from "../app";
 import {Blog as BlogType} from "../types";
 import BlogModel from "../models/blog.model";
 // helper
-import test_helper from "./test_helper";
+import test_helper from "./blog.testHelper";
 
 const api = supertest(app)
 
