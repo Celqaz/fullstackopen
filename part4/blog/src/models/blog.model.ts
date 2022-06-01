@@ -1,4 +1,4 @@
-import {model, Schema} from 'mongoose';
+import {model, Schema, Types} from 'mongoose';
 
 // Model
 interface BlogType {
@@ -6,7 +6,8 @@ interface BlogType {
     title: string,
     author: string,
     url: string,
-    likes: number
+    likes: number,
+    user: Types.ObjectId,
 }
 
 interface BlogTypeInMongoDB {
@@ -40,6 +41,10 @@ const blogSchema = new Schema<BlogType>({
     },
     id: {
         type: String,
+    },
+    user:{
+        type:Schema.Types.ObjectId,
+        ref:'user'
     }
 
     // author: {

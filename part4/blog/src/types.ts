@@ -14,6 +14,19 @@ interface BlogInDB{
     likes:number,
 }
 
+interface User{
+    username:string
+    name:string
+    password:string
+}
+
+interface UserInDB{
+    id:string,
+    username:string
+    name:string
+    password:string
+}
+
 interface AuthorWithMostBlogs {
     author: string
     blogsCount:number
@@ -28,5 +41,7 @@ export type {
     Blog,
     BlogInDB,
     AuthorWithMostBlogs,
-    AuthorWithMostLikes
+    AuthorWithMostLikes,
+    User,
+    UserInDB
 }

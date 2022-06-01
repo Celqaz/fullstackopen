@@ -12,4 +12,12 @@ Content-Type: application/json
   "url": "https://lodash.com/docs/"
 }
 
-###
+### POST a New User
+POST http://localhost:3001/api/user
+Content-Type: application/json
+
+{
+  "username": "Clay Pinter",
+  "name": "Barkley",
+  "password": "simple"
+}

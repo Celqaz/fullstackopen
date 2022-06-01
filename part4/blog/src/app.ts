@@ -2,7 +2,8 @@ import express, {Express} from "express";
 import cors from 'cors';
 import logger from "./utils/logger";
 //router
-import {blogRouter} from "./controllers/blog.controller"
+import {blogRouter} from "./controllers/blog.router";
+import {userRouter} from "./controllers/user.router";
 // import MongoDB stuff
 import {connect} from 'mongoose';
 import {MONGODB_URI} from "./utils/config";
@@ -10,7 +11,7 @@ import {MONGODB_URI} from "./utils/config";
 import middleware from "./utils/middleware";
 
 //init express app
-const app:Express = express()
+const app: Express = express()
 
 // connect MongoDB
 logger.info('🪝 Connecting to MongoDB...');
@@ -30,7 +31,8 @@ app.use(cors({
 app.use(express.json())
 app.use(middleware.requestLogger)
 //router
-app.use('/api/blogs/',blogRouter)
+app.use('/api/blogs/', blogRouter)
+app.use('/api/user/', userRouter)
 
 // error handling
 app.use(middleware.unknownEndpoint)
