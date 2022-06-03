@@ -9,7 +9,8 @@ Content-Type: application/json
 {
   "title": "Test is fun",
   "author": "F. Barkley",
-  "url": "https://lodash.com/docs/"
+  "url": "https://lodash.com/docs/",
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDI2Mzc1MH0.0To153g4OSSCwA95Inof4tOixhyQt2gxPsHw8nixi4I"
 }
 
 ### POST a New User
@@ -20,4 +21,13 @@ Content-Type: application/json
   "username": "Clay Pinter",
   "name": "Barkley",
   "password": "simple"
+}
+
+### login in
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "root",
+  "password": "secret"
 }

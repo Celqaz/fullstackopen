@@ -16,6 +16,7 @@ userRouter.get<UserInDB[]>('/', async (_request, response) => {
     response.json(allUsers)
 })
 
+// create new user
 userRouter.post<UserInDB>('/', async (request, response) => {
     const body: User = request.body
 

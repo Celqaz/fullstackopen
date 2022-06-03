@@ -39,11 +39,17 @@ interface AuthorWithMostLikes {
     likes:number
 }
 
+interface UserTokenType{
+    username: string,
+    id: Types.ObjectId,
+}
+
 export type {
     Blog,
     BlogInDB,
     AuthorWithMostBlogs,
     AuthorWithMostLikes,
     User,
-    UserInDB
+    UserInDB,
+    UserTokenType
 }

@@ -4,6 +4,7 @@ import logger from "./utils/logger";
 //router
 import {blogRouter} from "./controllers/blog.router";
 import {userRouter} from "./controllers/user.router";
+import {loginRouter} from "./controllers/login.route";
 // import MongoDB stuff
 import {connect} from 'mongoose';
 import {MONGODB_URI} from "./utils/config";
@@ -31,6 +32,7 @@ app.use(cors({
 app.use(express.json())
 app.use(middleware.requestLogger)
 //router
+app.use('/api/login', loginRouter)
 app.use('/api/blogs/', blogRouter)
 app.use('/api/users/', userRouter)
 
