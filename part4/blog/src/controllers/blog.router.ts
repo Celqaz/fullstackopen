@@ -1,29 +1,17 @@
 import BlogModel, {BlogModelType} from "../models/blog.model";
 import UserModel, {UserReturnedMongoType} from "../models/user.model";
-import {Router, Request} from "express";
+import {Router} from "express";
 // @ts-ignore
 import {Blog, BlogInDB, User} from "../types";
-import jwt, {JwtPayload} from "jsonwebtoken"
+import jwt from "jsonwebtoken"
 //env
 import {SECRET} from "../utils/config";
+import {CustomRequest} from "../@types/express";
+import {UserJwtPayload} from "../@types/jwt";
 
 require('express-async-errors')
 
 const blogRouter = Router()
-
-interface UserJwtPayload extends JwtPayload {
-    id: string,
-    username:string
-}
-
-const getTokenFrom = (request: Request) => {
-    const authorization = request.get('authorization')
-    if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-        return authorization.substring(7)
-    }
-    return ''
-}
-
 
 blogRouter.get<Blog[]>('/', async (_request, response) => {
     // BlogModel
@@ -51,11 +39,12 @@ blogRouter.get<BlogInDB>('/:id', async (request, response) => {
     }
 })
 
-blogRouter.post('/', async (request, response) => {
+blogRouter.post('/', async (request:CustomRequest, response) => {
     const body: Blog = request.body
     // authorization
-    const token = getTokenFrom(request)
-    const decodedToken = <UserJwtPayload>jwt.verify(token, SECRET)
+    const token = request.token
+    console.log("token in router",token)
+    const decodedToken = <UserJwtPayload>jwt.verify(token?token:"", SECRET)
     // if (!decodedToken.id) {
     //     return response.status(401).json({ error: 'token is invalid' })
     // }

@@ -7,10 +7,10 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-  "title": "Test is fun",
-  "author": "F. Barkley",
-  "url": "https://lodash.com/docs/",
-  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDI2Mzc1MH0.0To153g4OSSCwA95Inof4tOixhyQt2gxPsHw8nixi4I"
+  "title": "Celtics in 4",
+  "author": "T. Simons",
+  "url": "https://nintendo.com/docs/",
+  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDI2NzQ1OCwiZXhwIjoxNjU0MjcxMDU4fQ.kzy09CJzeRGAMy9lGJU8NtDaPYl1fc5GR13CPZ2Q7DQ"
 }
 
 ### POST a New User

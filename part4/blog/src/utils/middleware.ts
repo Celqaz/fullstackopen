@@ -1,11 +1,25 @@
 import logger from "./logger";
 import {ErrorRequestHandler, NextFunction, Request, Response} from "express";
+import {CustomRequest} from "../@types/express";
 
 const requestLogger = (request: Request, _response: Response, next: NextFunction) => {
     logger.info('Method:', request.method)
     logger.info('Path:  ', request.path)
     logger.info('Body:  ', request.body)
     logger.info('---')
+    next()
+}
+
+const getTokenFrom = (request: CustomRequest,_response: Response, next: NextFunction) => {
+    const authorization = request.body.authorization
+
+    if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+        // return authorization.substring(7)
+        request.token = authorization.substring(7)
+        console.log('request.token',request.token)
+    }else{
+        request.token = ''
+    }
     next()
 }
 
@@ -36,6 +50,7 @@ const errorHandler: ErrorRequestHandler = (error, _request, response, next) => {
 
 export default {
     requestLogger,
+    getTokenFrom,
     unknownEndpoint,
     errorHandler
 }

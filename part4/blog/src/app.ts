@@ -31,6 +31,7 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use(middleware.requestLogger)
+app.use(middleware.getTokenFrom)
 //router
 app.use('/api/login', loginRouter)
 app.use('/api/blogs/', blogRouter)
