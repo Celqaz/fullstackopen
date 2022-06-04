@@ -22,6 +22,9 @@ Content-Type: application/json
   "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDMwNjIzNiwiZXhwIjoxNjU0MzA5ODM2fQ.4edcZFqsG6-ob768FP0SOGQoG6cvnh5kknRCh1N3lNo"
 }
 
+### UPDATE a blog's like
+PUT http://localhost:3001/api/blogs/629ad55247ac1c1622206036
+
 ### POST a New User
 POST http://localhost:3001/api/users
 Content-Type: application/json

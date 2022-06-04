@@ -8,11 +8,12 @@ interface BlogProps {
 
 const Blogs = ({blogs}: BlogProps): JSX.Element => {
 
+    const sortedByLikesBlog = blogs.sort((a,b)=> b.likes-a.likes)
     return (
         <div>
             <h2>Blogs</h2>
             <div>
-                {blogs.map(blog =>
+                {sortedByLikesBlog.map(blog =>
                   <Blog blog={blog} key={blog.id}/>
                 )}
             </div>

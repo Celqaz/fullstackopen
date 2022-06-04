@@ -8,10 +8,10 @@ export interface BlogType{
     title:string
     author:string
     url:string
-    likes?: number
+    likes: number
 }
 
-export type newBlogType = Omit<BlogType, "id">
+export type newBlogType = Omit<BlogType, "id"|"likes">
 
 export interface TempMessageProps {
     type?: MessageType
