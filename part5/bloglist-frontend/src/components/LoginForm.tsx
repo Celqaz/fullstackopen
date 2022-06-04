@@ -3,10 +3,12 @@ import loginService from "../services/login.service";
 import {AxiosError} from "axios";
 import {LoginUserType} from "../types";
 
+interface LoginFormProps {
+    setUser:React.Dispatch<LoginUserType>
+}
 
+const LoginForm = ({setUser}:LoginFormProps): JSX.Element => {
 
-const LoginForm = (): JSX.Element => {
-    const [user, setUser] = useState<LoginUserType>()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
