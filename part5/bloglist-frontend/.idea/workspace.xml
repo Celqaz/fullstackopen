@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="fix vsc error">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.2">
+      <change afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/blogs.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/blogs.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -27,7 +30,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2A61YwePSWzRjrumEwcUo9rxEK2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -57,8 +62,16 @@
       <updated>1654315271951</updated>
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
-      <workItem from="1654328941642" duration="695000" />
+      <workItem from="1654328941642" duration="3736000" />
     </task>
+    <task id="LOCAL-00001" summary="[5] finish blog e5.2">
+      <created>1654333093775</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654333093775</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,5 +87,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[5] finish blog e5.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.2" />
   </component>
 </project>

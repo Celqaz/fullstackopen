@@ -66,13 +66,11 @@ blogRouter.post('/', async (request:CustomRequest, response) => {
         //     })
         const savedBlog = await blog.save()
 
-        console.log('savedBlog',savedBlog)
         user.blogs = user.blogs.concat(savedBlog._id)
-        console.log('new user',await user.save())
 
         response.status(201).json(savedBlog)
     }else{
-        response.status(400).send('wrong')
+        response.status(400).send('bad request')
     }
 })
 

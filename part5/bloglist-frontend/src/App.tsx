@@ -3,6 +3,7 @@ import Blogs from './components/Blogs'
 import blogService from './services/blogs.service'
 import {BlogType, LoginUserType} from "./types";
 import LoginForm from "./components/LoginForm";
+import BlogForm from "./components/BlogForm";
 
 const App = () => {
     const [blogs, setBlogs] = useState<BlogType[]>([])
@@ -37,6 +38,7 @@ const App = () => {
                     <button onClick={logoutHandler}>logout</button>
                 </div>
                 <Blogs blogs={blogs}/>
+                <BlogForm blogs={blogs} setBlogs={setBlogs}/>
             </div>
         )
     }
