@@ -24,7 +24,6 @@ const LoginForm = ({setUser}:LoginFormProps): JSX.Element => {
 try {
     const user = await loginService.login({username, password})
     setUser(user)
-    console.log(user)
     setUsername('')
     setPassword('')
 }catch (error) {
