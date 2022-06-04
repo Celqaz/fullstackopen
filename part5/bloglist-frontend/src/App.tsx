@@ -7,6 +7,7 @@ import BlogForm from "./components/BlogForm";
 import TempMessage from "./components/utils/TempMessage";
 // style
 import './app.css'
+import Toggleable from "./components/Toggleable";
 
 const App = () => {
     const [blogs, setBlogs] = useState<BlogType[]>([])
@@ -44,14 +45,14 @@ const App = () => {
     // otherwise display common content
     if (!user) {
         return (
-            <div>
+            <div className={'container'}>
                 {messageObj && <TempMessage type={messageObj.type} message={messageObj.message}/>}
                 <LoginForm setUser={setUser} setMessageObj={setMessageObj}/>
             </div>
         )
     } else {
         return (
-            <div>
+            <div className={'container'}>
                 {messageObj && <TempMessage type={messageObj.type} message={messageObj.message}/>}
                 {/*<TempMessage type={MessageType.Failure} message={'What\'s up'}/>*/}
                 <div>
@@ -59,7 +60,10 @@ const App = () => {
                     <button onClick={logoutHandler}>logout</button>
                 </div>
                 <Blogs blogs={blogs}/>
-                <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj}/>
+                {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
+                <Toggleable buttonLabel={'add new note'}>
+                    <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj}/>
+                </Toggleable>
             </div>
         )
     }

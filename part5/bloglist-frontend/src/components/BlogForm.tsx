@@ -56,23 +56,27 @@ const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element 
             <h2>Create New</h2>
             <div>
                 <form onSubmit={formSubmitHandler}>
-                    <div>
-                        <label>
-                            <span>title</span>
-                            <input type={"text"} value={newBlog?.title}
-                                   onChange={(event) => formChangeHandler(event, 'title')}/>
-                        </label>
-                        <label>
-                            <span>author</span>
-                            <input type={"text"} value={newBlog?.author}
-                                   onChange={(event) => formChangeHandler(event, 'author')}/>
-                        </label>
-                        <label>
-                            <span>url</span>
-                            <input type={"text"} value={newBlog?.url}
-                                   onChange={(event) => formChangeHandler(event, 'url')}/>
-                        </label>
-                    </div>
+                        <div>
+                            <label>
+                                <span>title</span>
+                                <input type={"text"} value={newBlog?.title}
+                                       onChange={(event) => formChangeHandler(event, 'title')}/>
+                            </label>
+                        <div>
+                        </div>
+                            <label>
+                                <span>author</span>
+                                <input type={"text"} value={newBlog?.author}
+                                       onChange={(event) => formChangeHandler(event, 'author')}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <span>url</span>
+                                <input type={"text"} value={newBlog?.url}
+                                       onChange={(event) => formChangeHandler(event, 'url')}/>
+                            </label>
+                        </div>
                     <button type={'submit'}>Submit</button>
                 </form>
             </div>
