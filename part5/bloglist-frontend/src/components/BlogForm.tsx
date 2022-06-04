@@ -13,7 +13,6 @@ const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element 
     const [newBlog, setNewBlog] = useState<newBlogType>({title: '', url: '', author: ''})
 
     const formChangeHandler = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
-        console.log(type, 'changed')
         switch (type) {
             case "title":
                 setNewBlog({...newBlog, "title": event.target.value})
@@ -28,7 +27,6 @@ const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element 
                 throw new Error("invalid input type, please try again")
         }
     }
-    console.log('newBlog', newBlog)
     const formSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (newBlog.title && newBlog.author && newBlog.url) {

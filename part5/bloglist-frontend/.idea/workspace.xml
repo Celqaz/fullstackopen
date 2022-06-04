@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.5">
-      <change afterPath="$PROJECT_DIR$/src/components/Toggleable.tsx" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.7">
+      <change afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -62,7 +62,7 @@
       <updated>1654315271951</updated>
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
-      <workItem from="1654328941642" duration="7778000" />
+      <workItem from="1654328941642" duration="9673000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -85,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654338879985</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[5] finish blog e5.5">
+      <created>1654343059431</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654343059431</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +114,7 @@
     <MESSAGE value="[5] finish blog e5.3" />
     <MESSAGE value="[5] finish blog e5.4" />
     <MESSAGE value="[5] finish blog e5.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.5" />
+    <MESSAGE value="[5] finish blog e5.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.7" />
   </component>
 </project>

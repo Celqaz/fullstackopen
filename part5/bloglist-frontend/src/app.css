@@ -23,6 +23,12 @@ button {
     border-radius: 0.3rem;
 }
 
+.blogContent{
+    border: violet 0.2rem solid;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+}
+
 .message {
     background-color: lightgrey;
     padding: 0.5rem;
