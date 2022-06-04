@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.9">
-      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.10">
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Blogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Toggleable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Toggleable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/TempMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils/TempMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/blogs.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/blogs.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/login.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +56,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -71,7 +78,7 @@
       <updated>1654315271951</updated>
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
-      <workItem from="1654328941642" duration="14972000" />
+      <workItem from="1654328941642" duration="15900000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -115,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654346726240</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[5] finish blog e5.10">
+      <created>1654350398014</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654350398014</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +153,7 @@
     <MESSAGE value="[5] finish blog e5.5" />
     <MESSAGE value="[5] finish blog e5.7" />
     <MESSAGE value="[5] finish blog e5.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.9" />
+    <MESSAGE value="[5] finish blog e5.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.10" />
   </component>
 </project>

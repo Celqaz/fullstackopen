@@ -14,7 +14,7 @@ export interface BlogType {
 }
 
 // export type newBlogType = Omit<BlogType, "id"|"likes">
-export type newBlogType = Pick<BlogType, "title" | "author" | "url">
+export type newBlogType = Pick<BlogType, 'title' | 'author' | 'url'>
 
 export interface TempMessageProps {
     type?: MessageType
@@ -22,6 +22,6 @@ export interface TempMessageProps {
 }
 
 export enum MessageType {
-    Success = "successInfo",
-    Failure = "failureInfo"
+    Success = 'successInfo',
+    Failure = 'failureInfo'
 }

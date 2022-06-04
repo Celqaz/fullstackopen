@@ -1,6 +1,6 @@
-import React from 'react';
-import {BlogType, UserType} from "../types";
-import Blog from "./Blog";
+import React from 'react'
+import { BlogType, UserType } from '../types'
+import Blog from './Blog'
 
 interface BlogProps {
     blogs: BlogType[]
@@ -8,19 +8,19 @@ interface BlogProps {
     user: UserType
 }
 
-const Blogs = ({blogs,setBlogs,user}: BlogProps): JSX.Element => {
+const Blogs = ({ blogs,setBlogs,user }: BlogProps): JSX.Element => {
 
-    const sortedByLikesBlog = blogs.sort((a,b)=> b.likes-a.likes)
-    return (
-        <div>
-            <h2>Blogs</h2>
-            <div>
-                {sortedByLikesBlog.map(blog =>
-                  <Blog blog={blog} blogs={blogs} setBlogs={setBlogs} key={blog.id} user={user}/>
-                )}
-            </div>
-        </div>
-    );
-};
+  const sortedByLikesBlog = blogs.sort((a,b) => b.likes-a.likes)
+  return (
+    <div>
+      <h2>Blogs</h2>
+      <div>
+        {sortedByLikesBlog.map(blog =>
+          <Blog blog={blog} blogs={blogs} setBlogs={setBlogs} key={blog.id} user={user}/>
+        )}
+      </div>
+    </div>
+  )
+}
 
-export default Blogs;
+export default Blogs
