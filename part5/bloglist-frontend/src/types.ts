@@ -12,3 +12,12 @@ export interface BlogType{
 }
 
 export type newBlogType = Omit<BlogType, "id">
+
+export interface TempMessageProps {
+    type?: MessageType
+    message: string | null
+}
+export enum MessageType {
+    Success = "successInfo",
+    Failure = "failureInfo"
+}

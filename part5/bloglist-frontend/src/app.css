@@ -1,0 +1,33 @@
+*{
+    margin: 0.5rem;
+    padding: 0;
+}
+
+button{
+    border:none;
+    padding: 0.3rem;
+    background-color: dodgerblue;
+    text-decoration: none;
+    color: white;
+    border-radius: 0.3rem;
+}
+.message{
+    background-color: lightgrey;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    font-weight: bold;
+    border: lightcoral 0.2rem dashed;
+    max-width: 30%;
+    min-width: 200px;
+    margin: auto;
+}
+
+.successInfo{
+    border-color: forestgreen;
+    color: forestgreen;
+}
+
+.failureInfo{
+    border-color: darkred;
+    color: darkred;
+}

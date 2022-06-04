@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {BlogType, newBlogType} from "../types";
+import {BlogType, MessageType, newBlogType, TempMessageProps} from "../types";
 import blogsService from "../services/blogs.service";
 import {AxiosError} from "axios";
 
 interface BlogFormProps {
     blogs: BlogType[]
     setBlogs: React.Dispatch<BlogType[]>
+    setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
 }
 
-const BlogForm = ({blogs,setBlogs}: BlogFormProps): JSX.Element => {
+const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element => {
     const [newBlog, setNewBlog] = useState<newBlogType>({title: '', url: '', author: ''})
 
     const formChangeHandler = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
@@ -33,14 +34,17 @@ const BlogForm = ({blogs,setBlogs}: BlogFormProps): JSX.Element => {
         if (newBlog.title && newBlog.author && newBlog.url) {
             try {
                 const savedBlog = await blogsService.postNewBlog(newBlog)
-                setBlogs([...blogs,savedBlog])
-                console.log('success')
-                setNewBlog({title:'',author:'',url:''})
-            }catch (error) {
-                if (error instanceof AxiosError){
-                    console.log(error.response?.data.error)
+                setBlogs([...blogs, savedBlog])
+                setMessageObj({
+                    message: `a new blog ${savedBlog.title} by ${savedBlog.author} added`
+                })
+                setNewBlog({title: '', author: '', url: ''})
+                // setTimeout(() => setMessageObj(null), 2000)
+            } catch (error) {
+                if (error instanceof AxiosError) {
+                    setMessageObj({type: MessageType.Failure, message: error.response?.data.error})
                 } else if (error instanceof Error) {
-                    console.log(error.message)
+                    setMessageObj({type: MessageType.Failure, message: error.message})
                 }
             }
         } else {

@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import loginService from "../services/login.service";
 import {AxiosError} from "axios";
-import {LoginUserType} from "../types";
+import {LoginUserType, MessageType, TempMessageProps} from "../types";
 //router
 import blogsService from "../services/blogs.service";
 
 interface LoginFormProps {
     setUser: React.Dispatch<LoginUserType>
+    setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
 }
 
-const LoginForm = ({setUser}: LoginFormProps): JSX.Element => {
+const LoginForm = ({setUser,setMessageObj}: LoginFormProps): JSX.Element => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -32,11 +33,14 @@ const LoginForm = ({setUser}: LoginFormProps): JSX.Element => {
             blogsService.setToken(user.token)
             setUsername('')
             setPassword('')
+            setMessageObj({
+                message: `Successfully log in.`
+            })
         } catch (error) {
             if (error instanceof AxiosError) {
-                console.log(error.response?.data.error)
+                setMessageObj({type: MessageType.Failure, message: error.response?.data.error})
             } else if (error instanceof Error) {
-                console.log(error.message)
+                setMessageObj({type: MessageType.Failure, message: error.message})
             }
         }
     }
