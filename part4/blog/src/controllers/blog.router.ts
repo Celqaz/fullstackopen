@@ -96,7 +96,9 @@ blogRouter.delete('/:id', async (request:CustomRequest, response) => {
     // if (!decodedToken.id) {
     //     return response.status(401).json({ error: 'token is invalid' })
     // }
+    console.log('request.params.id',request.params.id)
     const blog = await BlogModel.findById(request.params.id)
+    console.log('found blog',blog)
     // blog.user 为 Object.ID 需要toString转换才能比较
     if(blog?.user.toString() === request.user){
         await BlogModel.findByIdAndDelete(request.params.id)

@@ -6,6 +6,7 @@ interface Blog{
     url:string,
     likes?:number,
     user?: Types.ObjectId | string
+    "authorization"?:string
 }
 
 interface BlogInDB{

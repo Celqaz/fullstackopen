@@ -5,12 +5,12 @@ Accept: application/json
 ### POST a New BlogModel
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOWFiY2YyMTkxNWI4YTZjZGRlOWZlZSIsImlhdCI6MTY1NDMwOTkwNiwiZXhwIjoxNjU0MzEzNTA2fQ.w6F5G8NbaRJYMFi2yp3qxHR3LJqiGWYKKwYEwFYt6Mc
 
 {
-  "title": "Test Test",
+  "title": "Test Test 2",
   "author": "T. Simons",
-  "url": "https://nintendo.com/docs/",
-  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDMwNjIzNiwiZXhwIjoxNjU0MzA5ODM2fQ.4edcZFqsG6-ob768FP0SOGQoG6cvnh5kknRCh1N3lNo"
+  "url": "https://nintendo.com/docs/"
 }
 
 ### DELETE a post

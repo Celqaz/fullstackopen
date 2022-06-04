@@ -15,12 +15,10 @@ const requestLogger = (request: Request, _response: Response, next: NextFunction
 
 // 从request中提取认证信息
 const tokenExtractor = (request: CustomRequest, _response: Response, next: NextFunction) => {
-    const authorization = request.body.authorization
-
+    const authorization = request.get('Authorization')
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
         // return authorization.substring(7)
         request.token = authorization.substring(7)
-        console.log('request.token', request.token)
     } else {
         request.token = ''
     }
