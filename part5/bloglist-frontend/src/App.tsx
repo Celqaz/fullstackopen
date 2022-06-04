@@ -58,7 +58,7 @@ const App = () => {
           <strong><em>{user.username}</em></strong> logged in.
           <button onClick={logoutHandler}>logout</button>
         </div>
-        <Blogs blogs={blogs} setBlogs={setBlogs} user={user}/>
+        <Blogs blogs={blogs} />
         {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
         <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
           <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj} blogFormRef={blogFormRef}/>
