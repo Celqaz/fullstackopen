@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../part3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../part3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="fix vsc error">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +38,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -52,6 +56,8 @@
       <option name="presentableId" value="Default" />
       <updated>1654315271951</updated>
       <workItem from="1654315273536" duration="4206000" />
+      <workItem from="1654328853018" duration="76000" />
+      <workItem from="1654328941642" duration="695000" />
     </task>
     <servers />
   </component>

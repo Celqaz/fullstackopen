@@ -24,6 +24,9 @@ const LoginForm = ({setUser}:LoginFormProps): JSX.Element => {
 try {
     const user = await loginService.login({username, password})
     setUser(user)
+    window.localStorage.setItem(
+        'loggedBlogAppUser', JSON.stringify(user)
+    )
     setUsername('')
     setPassword('')
 }catch (error) {
