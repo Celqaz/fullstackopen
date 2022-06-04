@@ -43,14 +43,12 @@ blogRouter.post('/', async (request:CustomRequest, response) => {
     const body: Blog = request.body
     // authorization
     const token = request.token
-    console.log("token in router",token)
     const decodedToken = <UserJwtPayload>jwt.verify(token?token:"", SECRET)
     // if (!decodedToken.id) {
     //     return response.status(401).json({ error: 'token is invalid' })
     // }
     const user = await UserModel.findById(decodedToken.id)
 
-    console.log('post user',user)
     if (user) {
         const blog = new BlogModel<BlogModelType>(
             {
@@ -92,9 +90,20 @@ blogRouter.post('/:id', async (request, response) => {
 })
 
 // find by id and delete
-blogRouter.delete('/:id', async (request, response) => {
-    await BlogModel.findByIdAndDelete(request.params.id)
-    response.status(204).end()
+blogRouter.delete('/:id', async (request:CustomRequest, response) => {
+    const token = request.token
+    const decodedToken = <UserJwtPayload>jwt.verify(token?token:"", SECRET)
+    // if (!decodedToken.id) {
+    //     return response.status(401).json({ error: 'token is invalid' })
+    // }
+    const blog = await BlogModel.findById(request.params.id)
+    // blog.user 为 Object.ID 需要toString转换才能比较
+    if(blog?.user.toString() === decodedToken.id){
+        await BlogModel.findByIdAndDelete(request.params.id)
+        response.status(204).end()
+    }else{
+        response.status(401).send({"error":"bad request"})
+    }
 })
 
 export {blogRouter}
