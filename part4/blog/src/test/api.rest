@@ -7,19 +7,18 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-  "title": "Celtics in 4",
+  "title": "Test Test",
   "author": "T. Simons",
   "url": "https://nintendo.com/docs/",
-  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDI2NzQ1OCwiZXhwIjoxNjU0MjcxMDU4fQ.kzy09CJzeRGAMy9lGJU8NtDaPYl1fc5GR13CPZ2Q7DQ"
+  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDMwNjIzNiwiZXhwIjoxNjU0MzA5ODM2fQ.4edcZFqsG6-ob768FP0SOGQoG6cvnh5kknRCh1N3lNo"
 }
 
 ### DELETE a post
-DELETE http://localhost:3001/api/blogs/629784ba617f9d0f64b9b4a1
+DELETE http://localhost:3001/api/blogs/629ab9d8a56eadad26fa1f1f
 Content-Type: application/json
 
 {
   "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDMwNjIzNiwiZXhwIjoxNjU0MzA5ODM2fQ.4edcZFqsG6-ob768FP0SOGQoG6cvnh5kknRCh1N3lNo"
-
 }
 
 ### POST a New User

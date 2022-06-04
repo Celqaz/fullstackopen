@@ -91,14 +91,14 @@ blogRouter.post('/:id', async (request, response) => {
 
 // find by id and delete
 blogRouter.delete('/:id', async (request:CustomRequest, response) => {
-    const token = request.token
-    const decodedToken = <UserJwtPayload>jwt.verify(token?token:"", SECRET)
+    // const token = request.token
+    // const decodedToken = <UserJwtPayload>jwt.verify(token?token:"", SECRET)
     // if (!decodedToken.id) {
     //     return response.status(401).json({ error: 'token is invalid' })
     // }
     const blog = await BlogModel.findById(request.params.id)
     // blog.user 为 Object.ID 需要toString转换才能比较
-    if(blog?.user.toString() === decodedToken.id){
+    if(blog?.user.toString() === request.user){
         await BlogModel.findByIdAndDelete(request.params.id)
         response.status(204).end()
     }else{
