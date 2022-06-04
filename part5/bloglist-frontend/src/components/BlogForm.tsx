@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {BlogType, MessageType, newBlogType, TempMessageProps} from "../types";
 import blogsService from "../services/blogs.service";
 import {AxiosError} from "axios";
@@ -7,10 +7,12 @@ interface BlogFormProps {
     blogs: BlogType[]
     setBlogs: React.Dispatch<BlogType[]>
     setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
+    blogFormRef:  React.MutableRefObject<{toggleVisibility: () => void} | undefined>
 }
 
-const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element => {
+const BlogForm = ({blogs, setBlogs, setMessageObj,blogFormRef}: BlogFormProps): JSX.Element => {
     const [newBlog, setNewBlog] = useState<newBlogType>({title: '', url: '', author: ''})
+
 
     const formChangeHandler = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
         switch (type) {
@@ -37,6 +39,9 @@ const BlogForm = ({blogs, setBlogs, setMessageObj}: BlogFormProps): JSX.Element 
                     message: `a new blog ${savedBlog.title} by ${savedBlog.author} added`
                 })
                 setNewBlog({title: '', author: '', url: ''})
+                // useRef
+                blogFormRef.current?.toggleVisibility()
+                // FormRef.current.toggleVisibility()
                 // setTimeout(() => setMessageObj(null), 2000)
             } catch (error) {
                 if (error instanceof AxiosError) {

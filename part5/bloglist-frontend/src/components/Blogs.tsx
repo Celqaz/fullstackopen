@@ -1,12 +1,14 @@
 import React from 'react';
-import {BlogType} from "../types";
+import {BlogType, UserType} from "../types";
 import Blog from "./Blog";
 
 interface BlogProps {
     blogs: BlogType[]
+    setBlogs: React.Dispatch<BlogType[]>
+    user: UserType
 }
 
-const Blogs = ({blogs}: BlogProps): JSX.Element => {
+const Blogs = ({blogs,setBlogs,user}: BlogProps): JSX.Element => {
 
     const sortedByLikesBlog = blogs.sort((a,b)=> b.likes-a.likes)
     return (
@@ -14,7 +16,7 @@ const Blogs = ({blogs}: BlogProps): JSX.Element => {
             <h2>Blogs</h2>
             <div>
                 {sortedByLikesBlog.map(blog =>
-                  <Blog blog={blog} key={blog.id}/>
+                  <Blog blog={blog} blogs={blogs} setBlogs={setBlogs} key={blog.id} user={user}/>
                 )}
             </div>
         </div>

@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Blogs from './components/Blogs'
 import blogService from './services/blogs.service'
-import {BlogType, LoginUserType, TempMessageProps} from "./types";
+import {BlogType, TempMessageProps, UserType} from "./types";
 import LoginForm from "./components/LoginForm";
 import BlogForm from "./components/BlogForm";
 import TempMessage from "./components/utils/TempMessage";
@@ -11,10 +11,9 @@ import Toggleable from "./components/Toggleable";
 
 const App = () => {
     const [blogs, setBlogs] = useState<BlogType[]>([])
-    const [user, setUser] = useState<LoginUserType>()
+    const [user, setUser] = useState<UserType>()
     const [messageObj, setMessageObj] = useState<TempMessageProps | null>(null)
-    // const [messageObj,setMessageObj]= useState<TempMessageProps | null>({type:MessageType.Success,message:null})
-
+    const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
     // reset messageObj to null after 2s, so you don't need to set them in components
     if (messageObj) {
         setTimeout(() => setMessageObj(null), 2000)
@@ -59,10 +58,10 @@ const App = () => {
                     <strong><em>{user.username}</em></strong> logged in.
                     <button onClick={logoutHandler}>logout</button>
                 </div>
-                <Blogs blogs={blogs}/>
+                <Blogs blogs={blogs} setBlogs={setBlogs} user={user}/>
                 {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
-                <Toggleable buttonLabel={'add new note'}>
-                    <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj}/>
+                <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
+                    <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj} blogFormRef={blogFormRef}/>
                 </Toggleable>
             </div>
         )

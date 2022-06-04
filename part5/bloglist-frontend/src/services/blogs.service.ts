@@ -32,4 +32,11 @@ const addBlogLike = async ({id}:Pick<BlogType, "id">)=>{
     return response.data
 }
 
-export default {getAll, setToken,postNewBlog,addBlogLike}
+// delete a blog by Id
+const deleteBlogByID = async ({id}:Pick<BlogType, "id">)=>{
+    const config = {
+        headers: {Authorization: token},
+    }
+    return  await axios.delete(`${baseUrl}/${id}`, config)
+}
+export default {getAll, setToken,postNewBlog,addBlogLike,deleteBlogByID}

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import loginService from "../services/login.service";
 import {AxiosError} from "axios";
-import {LoginUserType, MessageType, TempMessageProps} from "../types";
+import {UserType, MessageType, TempMessageProps} from "../types";
 //router
 import blogsService from "../services/blogs.service";
 
 interface LoginFormProps {
-    setUser: React.Dispatch<LoginUserType>
+    setUser: React.Dispatch<UserType>
     setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
 }
 

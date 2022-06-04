@@ -25,14 +25,17 @@ Content-Type: application/json
 ### UPDATE a blog's like
 PUT http://localhost:3001/api/blogs/629ad55247ac1c1622206036
 
+### GET all users
+GET http://localhost:3001/api/users
+
 ### POST a New User
 POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "xstygdwwe",
-  "name": "Barkley",
-  "password": "simple"
+  "username": "test",
+  "name": "testName",
+  "password": "test"
 }
 
 ### login in

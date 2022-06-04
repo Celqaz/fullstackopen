@@ -5,8 +5,12 @@
       <change beforePath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/controllers/blog.router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/test/api.rest" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Blogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Toggleable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Toggleable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/blogs.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/blogs.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
@@ -29,6 +33,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2A61YwePSWzRjrumEwcUo9rxEK2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -64,7 +71,7 @@
       <updated>1654315271951</updated>
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
-      <workItem from="1654328941642" duration="11325000" />
+      <workItem from="1654328941642" duration="14972000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -101,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654344958260</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[5] finish blog e5.9">
+      <created>1654346726240</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654346726240</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
