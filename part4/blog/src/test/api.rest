@@ -22,11 +22,11 @@ Content-Type: application/json
 }
 
 ### POST a New User
-POST http://localhost:3001/api/user
+POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "Clay Pinter",
+  "username": "xstygdwwe",
   "name": "Barkley",
   "password": "simple"
 }

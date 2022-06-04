@@ -25,7 +25,7 @@ userRouter.post<UserInDB>('/', async (request, response) => {
     }
 
     const result = await UserModel.find({username:body.username})
-    if (result){
+    if (result.length !== 0){
         response.status(400).send({ error: '`username` to be unique' })
     }
     const saltRounds = 10

@@ -47,7 +47,7 @@ const errorHandler: ErrorRequestHandler = (error, _request, response, next) => {
         return response.status(400).json({error: error.message})
     } else if (error.name === 'JsonWebTokenError') {
         return response.status(401).json({
-            error: 'Token is invalid.'
+            error: 'Unauthorized'
         })
     } else if (error.name === 'TokenExpiredError') {
         return response.status(401).json({
