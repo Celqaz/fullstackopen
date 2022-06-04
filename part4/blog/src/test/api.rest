@@ -5,7 +5,8 @@ Accept: application/json
 ### POST a New BlogModel
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOWFiY2YyMTkxNWI4YTZjZGRlOWZlZSIsImlhdCI6MTY1NDMwOTkwNiwiZXhwIjoxNjU0MzEzNTA2fQ.w6F5G8NbaRJYMFi2yp3qxHR3LJqiGWYKKwYEwFYt6Mc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOWFkNTUyNDdhYzFjMTYyMjIwNjAzMCIsImlhdCI6MTY1NDMyMjg2MCwiZXhwIjoxNjU0MzI2NDYwfQ.89EsgIkOH6bpBnMC7fqHTclb7L5zxtXkRIiPeaHwAcc
+
 
 {
   "title": "Test Test 2",
