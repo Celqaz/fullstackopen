@@ -62,7 +62,7 @@ const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
       <div style={showWhenVisible}>
         <p>{blog.url}</p>
         <p>likes:{blog.likes}
-          <button onClick={() => likeHandler({ id: blog.id })}>like</button>
+          <button id={'likeBlogButton'} onClick={() => likeHandler({ id: blog.id })}>like</button>
         </p>
         <p>{blog.author}</p>
         { user.username === blog.user.username &&

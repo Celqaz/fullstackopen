@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish cypress e5.18">
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish cypress e5.19">
+      <change afterPath="$PROJECT_DIR$/cypress/support/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Blogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Toggleable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Toggleable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -31,7 +31,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2A61YwePSWzRjrumEwcUo9rxEK2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -70,6 +70,8 @@
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
       <workItem from="1654328941642" duration="15900000" />
+      <workItem from="1654402578214" duration="1000" />
+      <workItem from="1654402589399" duration="1743000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -127,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654400551975</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[5-t] finish cypress e5.19">
+      <created>1654401942921</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654401942921</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +162,7 @@
     <MESSAGE value="[5] finish blog e5.9" />
     <MESSAGE value="[5] finish blog e5.10" />
     <MESSAGE value="[5-t] finish cypress e5.18" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish cypress e5.18" />
+    <MESSAGE value="[5-t] finish cypress e5.19" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish cypress e5.19" />
   </component>
 </project>
