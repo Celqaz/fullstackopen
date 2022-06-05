@@ -26,9 +26,11 @@ if (MONGODB_URI) {
 
 // init necessary modules
 app.use(express.static('build'))
-app.use(cors({
-    origin: ['http://localhost:3000']
-}));
+// comment for test
+// app.use(cors({
+//     origin: ['http://localhost:3000']
+// }));
+app.use(cors());
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)

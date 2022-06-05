@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import Blogs from '../components/Blogs'
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import testHelper from './test_helper'
-
 
 
 describe('<Blog/> test', () => {
@@ -34,6 +33,22 @@ describe('<Blog/> test', () => {
     expect(blogUrl).toHaveTextContent(testHelper.initBlogs[0].url)
     const blogLikes = hiddenDiv?.querySelector('.blogLikes')
     expect(blogLikes).toHaveTextContent(`likes:${testHelper.initBlogs[0].likes}`)
+  })
+
+  test('should fire like button correctly', async () => {
+    const component = render(
+      <Blogs blogs={testHelper.initBlogs}/>
+    )
+    // query the like button
+    const likeButton = component.container.querySelector('.hiddenContent button')
+    expect(likeButton).toHaveTextContent(/^like$/)
+    // click like
+    fireEvent.click(likeButton as Element)
+    // expect likes up by 1
+    const likes = component.container.querySelector('.blogLikes')
+    await waitFor(() => {
+      expect(likes).toHaveTextContent(`likes:${testHelper.initBlogs[0].likes + 1}`)
+    })
   })
 })
 
