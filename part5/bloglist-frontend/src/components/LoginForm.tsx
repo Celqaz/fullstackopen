@@ -62,7 +62,7 @@ const LoginForm = ({ setUser,setMessageObj }: LoginFormProps): JSX.Element => {
                   onChange={passwordChangeHandler}/>
               </label>
             </div>
-            <button type={'submit'}>Submit</button>
+            <button id={'login_button'} type={'submit'}>Submit</button>
           </form>
         </div>
       </fieldset>

@@ -16,7 +16,7 @@ const App = () => {
   const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
   // reset messageObj to null after 2s, so you don't need to set them in components
   if (messageObj) {
-    setTimeout(() => setMessageObj(null), 2000)
+    setTimeout(() => setMessageObj(null), 5000)
   }
   // try to get saved login info from localStorage
   useEffect(() => {

@@ -5,6 +5,7 @@ import logger from "./utils/logger";
 import {blogRouter} from "./controllers/blog.router";
 import {userRouter} from "./controllers/user.router";
 import {loginRouter} from "./controllers/login.route";
+import {testRouter} from "./controllers/test.route";
 // import MongoDB stuff
 import {connect} from 'mongoose';
 import {MONGODB_URI} from "./utils/config";
@@ -36,7 +37,10 @@ app.use(middleware.tokenExtractor)
 app.use('/api/login',loginRouter)
 app.use('/api/blogs/',middleware.userExtractor, blogRouter)
 app.use('/api/users/', userRouter)
-
+//test router
+if (process.env.NODE_ENV === 'test') {
+    app.use('/api/testing', testRouter)
+}
 // error handling
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
