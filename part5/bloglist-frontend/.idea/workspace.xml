@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5] finish blog e5.10">
-      <change afterPath="$PROJECT_DIR$/../../part4/blog/src/controllers/test.route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/app.ts" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish cypress e5.18">
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Toggleable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Toggleable.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654350398014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[5-t] finish cypress e5.18">
+      <created>1654400551975</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654400551975</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +152,7 @@
     <MESSAGE value="[5] finish blog e5.7" />
     <MESSAGE value="[5] finish blog e5.9" />
     <MESSAGE value="[5] finish blog e5.10" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5] finish blog e5.10" />
+    <MESSAGE value="[5-t] finish cypress e5.18" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish cypress e5.18" />
   </component>
 </project>

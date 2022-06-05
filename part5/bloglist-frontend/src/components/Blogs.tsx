@@ -14,7 +14,7 @@ const Blogs = ({ blogs,setBlogs,user }: BlogProps): JSX.Element => {
   return (
     <div>
       <h2>Blogs</h2>
-      <div>
+      <div className={'blogsContent'}>
         {sortedByLikesBlog.map(blog =>
           <Blog blog={blog} blogs={blogs} setBlogs={setBlogs} key={blog.id} user={user}/>
         )}

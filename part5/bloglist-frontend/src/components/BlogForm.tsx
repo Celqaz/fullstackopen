@@ -62,25 +62,25 @@ const BlogForm = ({ blogs, setBlogs, setMessageObj,blogFormRef }: BlogFormProps)
           <div>
             <label>
               <span>title</span>
-              <input type={'text'} value={newBlog?.title}
+              <input id={'title_input'} type={'text'} value={newBlog?.title}
                 onChange={(event) => formChangeHandler(event, 'title')}/>
             </label>
             <div>
             </div>
             <label>
               <span>author</span>
-              <input type={'text'} value={newBlog?.author}
+              <input id={'author_input'} type={'text'} value={newBlog?.author}
                 onChange={(event) => formChangeHandler(event, 'author')}/>
             </label>
           </div>
           <div>
             <label>
               <span>url</span>
-              <input type={'text'} value={newBlog?.url}
+              <input id={'url_input'} type={'text'} value={newBlog?.url}
                 onChange={(event) => formChangeHandler(event, 'url')}/>
             </label>
           </div>
-          <button type={'submit'}>Submit</button>
+          <button id={'submit_newBlog'} type={'submit'}>Submit</button>
         </form>
       </div>
     </fieldset>
