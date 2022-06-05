@@ -10,6 +10,7 @@ declare global {
        * @example cy.dataCy('greeting')
        */
       login( username: string, password:string ): Chainable<Element>
+      addBlog():Chainable<Element>
     }
   }
 }
