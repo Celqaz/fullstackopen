@@ -6,7 +6,7 @@ interface BlogProps {
     blogs: BlogType[]
 }
 
-const Blogs = ({ blogs}: BlogProps): JSX.Element => {
+const Blogs = ({ blogs }: BlogProps): JSX.Element => {
 
   const sortedByLikesBlog = blogs.sort((a,b) => b.likes-a.likes)
   return (

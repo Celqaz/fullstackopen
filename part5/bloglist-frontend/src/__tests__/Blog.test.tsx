@@ -1,36 +1,39 @@
 import '@testing-library/jest-dom/extend-expect'
-import { BlogType } from '../types'
 import Blogs from '../components/Blogs'
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
+import testHelper from './test_helper'
+
 
 
 describe('<Blog/> test', () => {
-  const blogs: BlogType[] = [
-    {
-      id: '212',
-      title: 'Good Day',
-      author: 'M&M',
-      url: 'https://testing-library.com/docs/queries/about/',
-      likes: 0,
-      user: {
-        username: 'Ola Dip',
-        id: '2323444'
-      }
-    }
-  ]
 
   test('render Blogs correctly', () => {
-
-
     const component = render(
-      <Blogs blogs={blogs}/>
+      <Blogs blogs={testHelper.initBlogs}/>
     )
-    const visiableDiv = component.container.querySelector('.defaultBlogInfo')
+    const visibleDiv = component.container.querySelector('.defaultBlogInfo')
     const hiddenDiv = component.container.querySelector('.hiddenContent')
-    expect(visiableDiv).toHaveTextContent(
+    expect(visibleDiv).toHaveTextContent(
       'Good Day M&M'
     )
     expect(hiddenDiv).toHaveStyle('display: none')
+  })
+
+  test('show hidden url and likes when click show button', () => {
+    // const mockHandler = jest.fn()
+
+    const component = render(
+      <Blogs blogs={testHelper.initBlogs}/>
+    )
+    const button = component.getByText('show')
+    fireEvent.click(button)
+    // expect(mockHandler.mock.calls).toHaveLength(1)
+    const hiddenDiv = component.container.querySelector('.hiddenContent')
+    expect(hiddenDiv).not.toHaveStyle('display: none')
+    const blogUrl = hiddenDiv?.querySelector('.blogUrl')
+    expect(blogUrl).toHaveTextContent(testHelper.initBlogs[0].url)
+    const blogLikes = hiddenDiv?.querySelector('.blogLikes')
+    expect(blogLikes).toHaveTextContent(`likes:${testHelper.initBlogs[0].likes}`)
   })
 })
 

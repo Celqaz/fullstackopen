@@ -4,7 +4,7 @@ import blogsService from '../services/blogs.service'
 import { AxiosError } from 'axios'
 
 interface BlogProps {
-  blog: BlogType
+blog: BlogType
 }
 
 function errorHandler(error: unknown) {
@@ -59,8 +59,8 @@ const Blog = ({ blog }: BlogProps): JSX.Element => {
         <button onClick={visibleHandler}>{visible ? 'hide' : 'show'}</button>
       </div>
       <div className={'hiddenContent'} style={showWhenVisible}>
-        <p>{blog.url}</p>
-        <p>likes:{blog.likes}
+        <p className={'blogUrl'}>{blog.url}</p>
+        <p><span className={'blogLikes'}>likes:{blog.likes}</span>
           <button onClick={() => likeHandler({ id: blog.id })}>like</button>
         </p>
         <p>{blog.author}</p>
