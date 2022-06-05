@@ -55,10 +55,10 @@ const Blog = ({ blog }: BlogProps): JSX.Element => {
   }
   return (
     <div className={'blogContent'}>
-      <p>{blog.title} {blog.author}
+      <div className={'defaultBlogInfo'}>{blog.title} {blog.author}
         <button onClick={visibleHandler}>{visible ? 'hide' : 'show'}</button>
-      </p>
-      <div style={showWhenVisible}>
+      </div>
+      <div className={'hiddenContent'} style={showWhenVisible}>
         <p>{blog.url}</p>
         <p>likes:{blog.likes}
           <button onClick={() => likeHandler({ id: blog.id })}>like</button>

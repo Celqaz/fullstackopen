@@ -25,9 +25,12 @@ describe('<Blog/> test', () => {
     const component = render(
       <Blogs blogs={blogs}/>
     )
-    expect(component.container).toHaveTextContent(
-      'Good Day'
+    const visiableDiv = component.container.querySelector('.defaultBlogInfo')
+    const hiddenDiv = component.container.querySelector('.hiddenContent')
+    expect(visiableDiv).toHaveTextContent(
+      'Good Day M&M'
     )
+    expect(hiddenDiv).toHaveStyle('display: none')
   })
 })
 
