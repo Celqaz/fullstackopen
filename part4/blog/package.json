@@ -9,7 +9,8 @@
     "dev": "NODE_ENV=test ts-node-dev ./src/index.ts",
     "lint": "eslint --ext .ts .",
     "test": "NODE_ENV=test jest --verbose --runInBand",
-    "test-report": "jest --coverage"
+    "test-report": "jest --coverage",
+    "start:test": "NODE_ENV=test ts-node-dev ./src/index.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish test e5.14">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/BlogForm.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part4/blog/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/src/app.ts" afterDir="false" />
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish test e5.14, skip e5.15, e.5.16">
+      <change beforePath="$PROJECT_DIR$/../../part4/blog/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../part4/blog/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Blog.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Blog.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/test_helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/test_helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,7 @@
       <workItem from="1654315273536" duration="4206000" />
       <workItem from="1654328853018" duration="76000" />
       <workItem from="1654328941642" duration="19089000" />
-      <workItem from="1654391601191" duration="4770000" />
+      <workItem from="1654391601191" duration="5807000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -221,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654393724847</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[5-t] finish test e5.14, skip e5.15, e.5.16">
+      <created>1654396848714</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654396848714</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +255,7 @@
     <MESSAGE value="[5-t] init test" />
     <MESSAGE value="[5-t] finish test e5.13" />
     <MESSAGE value="[5-t] finish test e5.14" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish test e5.14" />
+    <MESSAGE value="[5-t] finish test e5.14, skip e5.15, e.5.16" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish test e5.14, skip e5.15, e.5.16" />
   </component>
 </project>
