@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] cypress fix  Cypress.Commands.add">
+    <list default="true" id="2396ff96-5e56-490e-886e-049238fd13a9" name="Changes" comment="[5-t] finish cypress e5.20">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/support/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/blogs.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/blogs.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <workItem from="1654328853018" duration="76000" />
       <workItem from="1654328941642" duration="15900000" />
       <workItem from="1654402578214" duration="1000" />
-      <workItem from="1654402589399" duration="3782000" />
+      <workItem from="1654402589399" duration="5048000" />
     </task>
     <task id="LOCAL-00001" summary="[5] finish blog e5.2">
       <created>1654333093775</created>
@@ -140,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654407019033</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[5-t] finish cypress e5.20">
+      <created>1654409015436</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654409015436</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +176,7 @@
     <MESSAGE value="[5-t] finish cypress e5.18" />
     <MESSAGE value="[5-t] finish cypress e5.19" />
     <MESSAGE value="[5-t] cypress fix  Cypress.Commands.add" />
-    <option name="LAST_COMMIT_MESSAGE" value="[5-t] cypress fix  Cypress.Commands.add" />
+    <MESSAGE value="[5-t] finish cypress e5.20" />
+    <option name="LAST_COMMIT_MESSAGE" value="[5-t] finish cypress e5.20" />
   </component>
 </project>

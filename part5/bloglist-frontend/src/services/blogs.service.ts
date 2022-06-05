@@ -37,6 +37,7 @@ const deleteBlogByID = async ({ id }:Pick<BlogType, 'id'>) => {
   const config = {
     headers: { Authorization: token },
   }
+  console.log('token in delete',token)
   return  await axios.delete(`${baseUrl}/${id}`, config)
 }
 

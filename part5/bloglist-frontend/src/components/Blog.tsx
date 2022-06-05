@@ -66,7 +66,7 @@ const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
         </p>
         <p>{blog.author}</p>
         { user.username === blog.user.username &&
-                    <button onClick={() => removeHandler({
+                    <button id={'removeBlog'} onClick={() => removeHandler({
                       id: blog.id,
                       title: blog.title,
                       author: blog.author
