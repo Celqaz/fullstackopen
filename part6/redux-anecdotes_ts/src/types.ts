@@ -3,3 +3,12 @@ export interface Anecdote {
     content: string;
     votes: number;
 }
+
+export interface NotificationType {
+    content : string
+}
+
+
+export interface FilterType {
+    filter: string;
+}

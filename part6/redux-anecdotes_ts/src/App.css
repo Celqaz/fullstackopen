@@ -3,7 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 button{
   border: 1px solid cornflowerblue;
+}
+
+.Notification{
+  padding: 10px;
+  border: 2px solid;
+}
+
+.anecdote-item{
+  padding: 0.5rem;
 }

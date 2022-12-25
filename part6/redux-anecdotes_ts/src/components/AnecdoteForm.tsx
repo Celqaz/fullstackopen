@@ -3,6 +3,7 @@ import {useAppDispatch} from "../hooks";
 import {add} from "../reducers/anecdotesReducer";
 // tools
 import {getId} from "../tools/tools";
+import {changeNotification, clearNotification} from "../reducers/notificationReducer";
 
 export default function AnecdoteForm (){
 
@@ -20,6 +21,8 @@ export default function AnecdoteForm (){
                 votes:0
             }
         ))
+        dispatch(changeNotification('You created ' + target.anecdote.value))
+        setTimeout(() => dispatch(clearNotification()),2500)
     }
 
     return(
