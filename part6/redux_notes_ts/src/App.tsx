@@ -1,26 +1,20 @@
 import React from 'react';
+import './App.css'
 
-import {useAppSelector, useAppDispatch} from './hooks'
-import {decrement, increment, zero} from './reducers/counterSlice'
+import NoteForm from "./components/NoteForm";
+import Notes from "./components/Notes";
 
 function App() {
-    const count = useAppSelector(state => state.counter.value)
-    const dispatch = useAppDispatch()
-
     return (
-        <div>
-            <div>
-                {count}
-            </div>
-            <button onClick={() => dispatch(increment())}>
-                plus
-            </button>
-            <button onClick={() => dispatch(decrement())}>
-                decrement
-            </button>
-            <button onClick={() => dispatch(zero())}>
-                zero
-            </button>
+        <div className={'appContainer'}>
+            {/* Title */}
+            <h1>Note</h1>
+
+            {/* Form */}
+            <NoteForm/>
+
+            {/* Display */}
+            <Notes/>
         </div>
     );
 }

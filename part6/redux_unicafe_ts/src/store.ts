@@ -1,12 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
-// import
-import counterReducer from "../src/reducers/counterSlice";
-import noteReducer from "../src/reducers/noteSlice"
+// import reducers
+import cafeReducer from "./reducers/cafeReducer";
+
 
 const store = configureStore({
     reducer: {
-        counter: counterReducer,
-        note: noteReducer,
+        cafe: cafeReducer
     }
 })
 
