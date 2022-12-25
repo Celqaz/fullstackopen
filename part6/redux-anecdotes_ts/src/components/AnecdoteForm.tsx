@@ -1,11 +1,12 @@
 import React from 'react';
 import {useAppDispatch} from "../hooks";
 import {add} from "../reducers/anecdotesReducer";
+// tools
+import {getId} from "../tools/tools";
 
 export default function AnecdoteForm (){
 
     const dispatch = useAppDispatch()
-    const getId = () => (100000 * Math.random()).toFixed(0)
     const formSubmitHandler = (event: React.FormEvent)=>{
         event.preventDefault()
         // 拓展 type

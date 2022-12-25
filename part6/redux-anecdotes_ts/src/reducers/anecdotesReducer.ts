@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Anecdote} from "../types";
-
+import {getId} from "../tools/tools";
 
 const anecdotesAtStart = [
     'If it hurts, do it more often',
@@ -10,7 +10,6 @@ const anecdotesAtStart = [
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
 ]
-const getId = () => (100000 * Math.random()).toFixed(0)
 
 const asObject = (anecdote: string) : Anecdote => {
     return {
