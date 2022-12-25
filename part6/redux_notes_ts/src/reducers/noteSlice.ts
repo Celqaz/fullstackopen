@@ -1,12 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {NoteState} from "../types";
 
 // import type {RootState} from "../store";
-
-interface NoteState {
-    content: string;
-    important: boolean;
-    id: number;
-}
 
 // interface NoteState {
 //     data: DataType
@@ -49,10 +44,19 @@ const noteSlice = createSlice({
                 return state.map(note => note.id !== id ? note : changedNote)
             }
             return state
-        }
+        },
+        // showImportant: (state, action: PayloadAction<toggleEnum>) => {
+        //     if (action.payload === toggleEnum.IMPORTANT) {
+        //         return state.filter(note => note.important === true)
+        //     } else if (action.payload === toggleEnum.NONIMPORTANT) {
+        //         return state.filter(note => note.important === false)
+        //     } else {
+        //         return state
+        //     }
+        // }
     }
 })
 
-export const {add, pop,importance} = noteSlice.actions
+export const {add, importance} = noteSlice.actions
 
 export default noteSlice.reducer
