@@ -17,9 +17,17 @@ const postNew = async (content: string) => {
     return response.data
 }
 
+const patchVote = async (id: string) => {
+    const {data} = await axios.get(`${baserUrl}/${id}`)
+    const response = await axios.patch(`${baserUrl}/${id}`, {votes: data.votes + 1})
+    console.log(response.data)
+    return response.data
+}
+
 const anecdotesService = {
     getAll,
-    postNew
+    postNew,
+    patchVote
 }
 
 export default anecdotesService

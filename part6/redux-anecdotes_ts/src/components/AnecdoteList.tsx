@@ -1,7 +1,6 @@
 import React from 'react';
-import {vote} from "../reducers/anecdotesReducer";
-import {useAppSelector} from "../hooks";
-import {useDispatch} from "react-redux";
+import {updateAnecdotesVote} from "../reducers/anecdotesReducer";
+import {useAppDispatch, useAppSelector} from "../hooks";
 import {handle} from "../tools/tools";
 import {Anecdote} from "../types";
 import {changeNotification, clearNotification} from "../reducers/notificationReducer";
@@ -13,10 +12,11 @@ export default function AnecdoteList() {
 
     const sortedAnecdotes = anecdotes.sort(handle())
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const voteHandler = (anecdote: Anecdote) => {
-        dispatch(vote(anecdote.id))
+        dispatch(updateAnecdotesVote(anecdote.id))
+
         dispatch(changeNotification('You voted ' + anecdote.content))
         setTimeout(() => dispatch(clearNotification()), 2500)
     }
