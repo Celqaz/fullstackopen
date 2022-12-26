@@ -1,22 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { NoteState} from "../types";
+import {NoteState} from "../types";
+import noteService from "../services/notes";
+import {AppDispatch} from "../store";
 
-// import type {RootState} from "../store";
-
-// interface NoteState {
-//     data: DataType
-// }
-
-// [{
-//     content: "hi",
-//         id: 5,
-//     important: false
-// },
-// {
-//     content: "Port",
-//         id: 6,
-//     important: true
-// }]
 const initialState: NoteState[] = []
 
 const noteSlice = createSlice({
@@ -44,10 +30,10 @@ const noteSlice = createSlice({
             }
             return state
         },
-        setNotes(state, action:PayloadAction<NoteState[]>) {
+        setNotes(state, action: PayloadAction<NoteState[]>) {
             return action.payload
         },
-        createNote: (state,action:PayloadAction<NoteState>) =>{
+        createNote: (state, action: PayloadAction<NoteState>) => {
             state.push(action.payload)
         }
         // showImportant: (state, action: PayloadAction<toggleEnum>) => {
@@ -62,6 +48,25 @@ const noteSlice = createSlice({
     }
 })
 
-export const {add, importance,setNotes,createNote} = noteSlice.actions
+export const {add, importance, setNotes, createNote} = noteSlice.actions
+
+// 通过Redux Thunk可以实现action creators，它返回一个函数而不是一个对象。
+// 该函数接收Redux存储的dispatch和getState方法作为参数。
+// 这允许异步动作创建者的实现，它首先等待某个异步操作的完成，然后分派一些动作，改变 store 的状态。
+export const initializeNotes = () => {
+    // const dispatch = useAppDispatch()
+    return async (dispatch: AppDispatch) => {
+        const notes = await noteService.getAll()
+        dispatch(setNotes(notes))
+    }
+}
+
+export const createNewNote = (content : string) => {
+    return async (dispatch : AppDispatch) => {
+        const newNote = await noteService.createNew(content)
+        dispatch(createNote(newNote))
+    }
+}
 
 export default noteSlice.reducer
+

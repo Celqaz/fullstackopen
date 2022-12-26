@@ -6,17 +6,20 @@ import Notes from "./components/Notes";
 import VisibilityFilter from "./components/VisibilityFilter";
 import {useAppDispatch} from "./hooks";
 // service
-import noteService from './services/notes'
-import {setNotes} from "./reducers/noteSlice";
+import {initializeNotes} from "./reducers/noteSlice";
 
 function App() {
     const dispatch = useAppDispatch()
     // fetch data
-    useEffect(()=>{
-        noteService.getAll()
-            .then(notes => dispatch(setNotes(notes)))
-    },[dispatch])
+    // useEffect(()=>{
+    //     noteService.getAll()
+    //         .then(notes => dispatch(setNotes(notes)))
+    // },[dispatch])
+    // initializeNotes
 
+    useEffect(() => {
+        dispatch(initializeNotes())
+    }, [dispatch])
     // const filterSelected = (value:toggleEnum) => {
     //     console.log(value,toggleEnum.ALL)
     //     dispatch(showImportant(value))

@@ -7,15 +7,13 @@ import Notification from "./components/Notification";
 import {useAppDispatch, useAppSelector} from "./hooks";
 import FilterForm from "./components/FilterForm";
 // service
-import anecdotesService from "./service/anecdotesService";
-import {setAnecdotes} from "./reducers/anecdotesReducer";
+import {initializeAnecdotes} from "./reducers/anecdotesReducer";
 function App() {
     const dispatch = useAppDispatch()
     const notification = useAppSelector(state => state.notification)
 
     useEffect(()=>{
-        anecdotesService.getAll()
-            .then( data => dispatch(setAnecdotes(data)))
+        dispatch(initializeAnecdotes())
     })
 
     return (

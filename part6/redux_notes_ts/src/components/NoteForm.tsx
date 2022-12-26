@@ -1,8 +1,8 @@
 import React from 'react'
-import {createNote} from "../reducers/noteSlice";
+import {createNewNote} from "../reducers/noteSlice";
 import {useAppDispatch} from "../hooks";
-import noteService from "../services/notes";
-import {NoteState} from "../types";
+// import noteService from "../services/notes";
+// import {NoteState} from "../types";
 
 
 // const generateId = () =>
@@ -20,14 +20,14 @@ const NoteForm = () => {
         };
         const content = target.note.value
         target.note.value = ''
-        const newNote: NoteState = await noteService.createNew(content)
+        // const newNote: NoteState = await noteService.createNew(content)
         // dispatch(add({
         //     content: content,
         //     id: generateId(),
         //     important: false
         // }))
 
-        dispatch(createNote(newNote))
+        dispatch(createNewNote(content))
     }
 
     return (
@@ -36,7 +36,6 @@ const NoteForm = () => {
                 <input type="text" name="note"/>
                 <button type={"submit"}>submit</button>
             </form>
-
         </div>
     )
 }

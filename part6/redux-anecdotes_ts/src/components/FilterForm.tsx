@@ -1,6 +1,6 @@
 import React from 'react';
-import {changeFilter} from "../reducers/filterReducer";
 import {useAppDispatch} from "../hooks";
+import {createAnecdotes} from "../reducers/anecdotesReducer";
 // redux
 
 export default function FilterForm() {
@@ -8,7 +8,7 @@ export default function FilterForm() {
 
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>)=>{
         // console.log('change',event.target.value)
-        dispatch(changeFilter(event.target.value))
+        dispatch(createAnecdotes(event.target.value))
     }
     return (
         <div>
