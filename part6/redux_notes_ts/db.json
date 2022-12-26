@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "notes": [
+    {
+      "content": "hi",
+      "id": 5,
+      "important": false
+    },
+    {
+      "content": "Port",
+      "id": 6,
+      "important": true
+    },
+    {
+      "content": "We believe in you",
+      "id": 9,
+      "important": true
+    },
+    {
+      "content": "Good Day",
+      "important": false,
+      "id": 10
+    },
+    {
+      "content": "hello",
+      "important": false,
+      "id": 11
+    },
+    {
+      "content": "awesome",
+      "important": false,
+      "id": 12
+    }
+  ]
+}

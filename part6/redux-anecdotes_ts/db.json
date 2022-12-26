@@ -1,0 +1,64 @@
+{
+  "anecdotes": [
+    {
+      "content": "If it hurts, do it more often",
+      "id": "47145",
+      "votes": 2
+    },
+    {
+      "content": "Adding manpower to a late software project makes it later!",
+      "id": "21149",
+      "votes": 4
+    },
+    {
+      "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
+      "id": "69581",
+      "votes": 1
+    },
+    {
+      "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      "id": "36975",
+      "votes": 2
+    },
+    {
+      "content": "Premature optimization is the root of all evil.",
+      "id": "25170",
+      "votes": 2
+    },
+    {
+      "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+      "id": "98312",
+      "votes": 0
+    },
+    {
+      "content": "Add the Redux Toolkit and React-Redux packages to your project",
+      "votes": 2,
+      "id": "Xp-wASN"
+    },
+    {
+      "content": "Dataframe Concatenation",
+      "votes": 0,
+      "id": "1MqKSoa"
+    },
+    {
+      "content": " a scatter plot containing different portfolios",
+      "votes": 0,
+      "id": "4g1m3Pa"
+    },
+    {
+      "content": "n Portfolio (or mean-variance) theory, the efficient frontier is a set of points",
+      "votes": 2,
+      "id": "yy11U46"
+    },
+    {
+      "content": "Add the Redux Toolkit and React-Redux packages to your project",
+      "votes": 2,
+      "id": "8B-OQ4G"
+    },
+    {
+      "content": " 创建通知仍然有点繁琐，因为必须做两个动作并使用setTimeout函数。",
+      "votes": 3,
+      "id": "9NG1vL7"
+    }
+  ]
+}
