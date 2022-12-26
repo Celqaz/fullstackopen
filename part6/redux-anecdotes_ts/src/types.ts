@@ -4,6 +4,11 @@ export interface Anecdote {
     votes: number;
 }
 
+export interface NewAnecdote {
+    content: string;
+    votes: number;
+}
+
 export interface NotificationType {
     content : string
 }
