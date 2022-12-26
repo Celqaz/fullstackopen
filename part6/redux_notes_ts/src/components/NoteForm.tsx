@@ -1,16 +1,18 @@
 import React from 'react'
-import {add} from "../reducers/noteSlice";
+import {createNote} from "../reducers/noteSlice";
 import {useAppDispatch} from "../hooks";
+import noteService from "../services/notes";
+import {NoteState} from "../types";
 
 
-const generateId = () =>
-    Number((Math.random() * 1000000).toFixed(0))
+// const generateId = () =>
+//     Number((Math.random() * 1000000).toFixed(0))
 
 const NoteForm = () => {
     const dispatch = useAppDispatch()
 
     // form Handler
-    const formHandler = (event: React.FormEvent<HTMLFormElement>) =>{
+    const formHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         // 拓展 type
         const target = event.target as typeof event.target & {
@@ -18,13 +20,14 @@ const NoteForm = () => {
         };
         const content = target.note.value
         target.note.value = ''
-        console.log(content)
-        dispatch(add({
-            content:content,
-            id:generateId(),
-            important:false
-        }))
+        const newNote: NoteState = await noteService.createNew(content)
+        // dispatch(add({
+        //     content: content,
+        //     id: generateId(),
+        //     important: false
+        // }))
 
+        dispatch(createNote(newNote))
     }
 
     return (

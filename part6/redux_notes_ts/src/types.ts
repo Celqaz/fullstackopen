@@ -4,6 +4,12 @@ export interface NoteState {
     id: number;
 }
 
+export interface NewNoteState {
+    content: string;
+    important: boolean;
+}
+
+
 export enum ImportanceEnum {
     ALL = "ALL",
     IMPORTANT = "IMPORTANT",

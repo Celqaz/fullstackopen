@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {NoteState} from "../types";
+import { NoteState} from "../types";
 
 // import type {RootState} from "../store";
 
@@ -7,18 +7,17 @@ import {NoteState} from "../types";
 //     data: DataType
 // }
 
-const initialState: NoteState[] = [
-    {
-        content: "hi",
-        id: 5,
-        important: false
-    },
-    {
-        content: "Port",
-        id: 6,
-        important: true
-    }
-]
+// [{
+//     content: "hi",
+//         id: 5,
+//     important: false
+// },
+// {
+//     content: "Port",
+//         id: 6,
+//     important: true
+// }]
+const initialState: NoteState[] = []
 
 const noteSlice = createSlice({
     name: "note",
@@ -45,6 +44,12 @@ const noteSlice = createSlice({
             }
             return state
         },
+        setNotes(state, action:PayloadAction<NoteState[]>) {
+            return action.payload
+        },
+        createNote: (state,action:PayloadAction<NoteState>) =>{
+            state.push(action.payload)
+        }
         // showImportant: (state, action: PayloadAction<toggleEnum>) => {
         //     if (action.payload === toggleEnum.IMPORTANT) {
         //         return state.filter(note => note.important === true)
@@ -57,6 +62,6 @@ const noteSlice = createSlice({
     }
 })
 
-export const {add, importance} = noteSlice.actions
+export const {add, importance,setNotes,createNote} = noteSlice.actions
 
 export default noteSlice.reducer
