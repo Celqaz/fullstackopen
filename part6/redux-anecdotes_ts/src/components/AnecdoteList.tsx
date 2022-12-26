@@ -3,7 +3,7 @@ import {updateAnecdotesVote} from "../reducers/anecdotesReducer";
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {handle} from "../tools/tools";
 import {Anecdote} from "../types";
-import {changeNotification, clearNotification} from "../reducers/notificationReducer";
+import {showNotification} from "../reducers/notificationReducer";
 
 export default function AnecdoteList() {
     const {filter} = useAppSelector(state => state.filter)
@@ -16,9 +16,7 @@ export default function AnecdoteList() {
 
     const voteHandler = (anecdote: Anecdote) => {
         dispatch(updateAnecdotesVote(anecdote.id))
-
-        dispatch(changeNotification('You voted ' + anecdote.content))
-        setTimeout(() => dispatch(clearNotification()), 2500)
+        dispatch(showNotification(`You voted ${anecdote.content}`, 2.5))
     }
 
     if (!anecdotes) {

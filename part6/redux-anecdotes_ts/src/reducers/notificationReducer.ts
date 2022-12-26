@@ -1,5 +1,6 @@
 import {NotificationType} from "../types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {AppDispatch} from "../store";
 
 const initialState: NotificationType = {
     content: ''
@@ -20,4 +21,13 @@ const notificationSlice = createSlice({
 })
 
 export const {changeNotification, clearNotification} = notificationSlice.actions
+
+// action creators
+export const showNotification = (content: string, time: number) =>{
+    return  (dispatch : AppDispatch) => {
+        dispatch(changeNotification(content))
+        setTimeout(()=>dispatch(clearNotification()), time*1000)
+    }
+}
+
 export default notificationSlice.reducer
