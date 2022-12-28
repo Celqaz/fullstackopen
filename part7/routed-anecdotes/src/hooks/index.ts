@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const useField = (type: string) => {
+export const useField = (type: string) => {
     const [value, setValue] = useState('')
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,10 +12,6 @@ const useField = (type: string) => {
     }
 
     return {
-        type, value, onChange,reset
+        type, value, onChange, reset
     }
-}
-
-export {
-    useField
 }
