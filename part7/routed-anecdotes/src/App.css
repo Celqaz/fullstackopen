@@ -1,0 +1,16 @@
+.menu{
+    padding: 1rem;
+}
+
+.notification{
+    border: 1px solid darkolivegreen;
+}
+
+.hidden_notification{
+    display: none;
+}
+
+.footer{
+    margin: 1rem 0;
+    font-style: italic;
+}
