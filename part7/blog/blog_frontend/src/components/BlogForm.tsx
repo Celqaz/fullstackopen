@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
-import { BlogType, MessageType, newBlogType, TempMessageProps } from '../types'
+import { BlogType, MessageType, newBlogType } from '../types'
 import blogsService from '../services/blogs.service'
 import { AxiosError } from 'axios'
+import {useAppDispatch} from "../app/hooks";
+import {displayNotification} from "../features/notificatonReducers";
 
 interface BlogFormProps {
     blogs: BlogType[]
     setBlogs: React.Dispatch<BlogType[]>
-    setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
+    // setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
     blogFormRef:  React.MutableRefObject<{toggleVisibility: () => void} | undefined>
 }
 
-const BlogForm = ({ blogs, setBlogs, setMessageObj,blogFormRef }: BlogFormProps): JSX.Element => {
+const BlogForm = ({ blogs, setBlogs,blogFormRef }: BlogFormProps): JSX.Element => {
   const [newBlog, setNewBlog] = useState<newBlogType>({ title: '', url: '', author: '' })
-
+  // redux notification
+  const dispatch = useAppDispatch()
 
   const formChangeHandler = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
     switch (type) {
@@ -35,9 +38,12 @@ const BlogForm = ({ blogs, setBlogs, setMessageObj,blogFormRef }: BlogFormProps)
       try {
         const savedBlog = await blogsService.postNewBlog(newBlog)
         setBlogs([...blogs, savedBlog])
-        setMessageObj({
+        // setMessageObj({
+        //   message: `a new blog ${savedBlog.title} by ${savedBlog.author} added`
+        // })
+        dispatch(displayNotification({
           message: `a new blog ${savedBlog.title} by ${savedBlog.author} added`
-        })
+        }))
         setNewBlog({ title: '', author: '', url: '' })
         // useRef
         blogFormRef.current?.toggleVisibility()
@@ -45,9 +51,11 @@ const BlogForm = ({ blogs, setBlogs, setMessageObj,blogFormRef }: BlogFormProps)
         // setTimeout(() => setMessageObj(null), 2000)
       } catch (error) {
         if (error instanceof AxiosError) {
-          setMessageObj({ type: MessageType.Failure, message: error.response?.data.error })
+          // setMessageObj({ type: MessageType.Failure, message: error.response?.data.error })
+          dispatch(displayNotification({ type: MessageType.Failure, message: error.response?.data.error }))
         } else if (error instanceof Error) {
-          setMessageObj({ type: MessageType.Failure, message: error.message })
+          // setMessageObj({ type: MessageType.Failure, message: error.message })
+          dispatch(displayNotification({ type: MessageType.Failure, message: error.message }))
         }
       }
     } else {

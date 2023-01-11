@@ -1,19 +1,32 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {TempMessageProps} from "../types";
+import {MessageType, TempMessageProps} from "../types";
+import {AppDispatch} from "../app/store";
 
-const initialNotification: Pick<TempMessageProps, "message"> = {message: ""}
+const initialNotification: TempMessageProps = {type: MessageType.Success, message: null}
 const notificationSlice = createSlice({
     name: 'notification',
     initialState: initialNotification,
     reducers: {
-        all: state => state,
-        setNotification: (state, action: PayloadAction<string>) => {
-            return {message: action.payload}
+        setNotification: (state, action: PayloadAction<TempMessageProps>) => {
+            return action.payload
         },
-        reset: () => initialNotification
+        resetNotification: () => initialNotification
     }
 })
 
-export const {all, setNotification, reset} = notificationSlice.actions
+export const {setNotification, resetNotification} = notificationSlice.actions
+
+let timeoutID: NodeJS.Timeout
+export const displayNotification = (messageObj : TempMessageProps,time: number = 2) =>{
+
+    return (dispatch: AppDispatch) => {
+        dispatch(setNotification(messageObj))
+        console.log('setNoti')
+        clearTimeout(timeoutID)
+        timeoutID = setTimeout(() => dispatch(resetNotification()), time * 1000)
+    }
+}
+
+
 
 export default notificationSlice.reducer

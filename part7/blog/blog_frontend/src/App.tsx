@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Blogs from './components/Blogs'
 import blogService from './services/blogs.service'
-import {BlogType, TempMessageProps, UserType} from './types'
+import {BlogType, UserType} from './types'
 import LoginForm from './components/LoginForm'
 import BlogForm from './components/BlogForm'
 import TempMessage from './components/utils/TempMessage'
@@ -14,15 +14,15 @@ import {initializeBlogs} from "./features/blogReducers";
 const App = () => {
     const [blogs, setBlogs] = useState<BlogType[]>([])
     const [user, setUser] = useState<UserType>()
-    const [messageObj, setMessageObj] = useState<TempMessageProps | null>(null)
+    // const [messageObj, setMessageObj] = useState<TempMessageProps | null>(null)
     const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
     const dispatch = useAppDispatch()
-    const blogsTest = useAppSelector(state => state.blog)
-    console.log('blogsTest',blogsTest)
+    // const blogsTest = useAppSelector(state => state.blog)
+    const notification = useAppSelector(state => state.notification)
     // reset messageObj to null after 2s, so you don't need to set them in components
-    if (messageObj) {
-        setTimeout(() => setMessageObj(null), 5000)
-    }
+    // if (messageObj) {
+    //     setTimeout(() => setMessageObj(null), 5000)
+    // }
     // try to get saved login info from localStorage
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedBlogAppUser')
@@ -52,14 +52,14 @@ const App = () => {
     if (!user) {
         return (
             <div className={'container'}>
-                {messageObj && <TempMessage type={messageObj.type} message={messageObj.message}/>}
-                <LoginForm setUser={setUser} setMessageObj={setMessageObj}/>
+                {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
+                <LoginForm setUser={setUser}/>
             </div>
         )
     } else {
         return (
             <div className={'container'}>
-                {messageObj && <TempMessage type={messageObj.type} message={messageObj.message}/>}
+                {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
                 {/*<TempMessage type={MessageType.Failure} message={'What\'s up'}/>*/}
                 <div>
                     <strong><em>{user.username}</em></strong> logged in.
@@ -68,8 +68,7 @@ const App = () => {
                 <Blogs blogs={blogs} setBlogs={setBlogs} user={user}/>
                 {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
                 <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
-                    <BlogForm blogs={blogs} setBlogs={setBlogs} setMessageObj={setMessageObj}
-                              blogFormRef={blogFormRef}/>
+                    <BlogForm blogs={blogs} setBlogs={setBlogs} blogFormRef={blogFormRef}/>
                 </Toggleable>
             </div>
         )
