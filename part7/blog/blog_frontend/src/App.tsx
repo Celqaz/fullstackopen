@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Blogs from './components/Blogs'
 import blogService from './services/blogs.service'
-import {BlogType, UserType} from './types'
+import {UserType} from './types'
 import LoginForm from './components/LoginForm'
 import BlogForm from './components/BlogForm'
 import TempMessage from './components/utils/TempMessage'
@@ -12,17 +12,12 @@ import {useAppDispatch, useAppSelector} from "./app/hooks";
 import {initializeBlogs} from "./features/blogReducers";
 
 const App = () => {
-    const [blogs, setBlogs] = useState<BlogType[]>([])
     const [user, setUser] = useState<UserType>()
     // const [messageObj, setMessageObj] = useState<TempMessageProps | null>(null)
     const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
     const dispatch = useAppDispatch()
     // const blogsTest = useAppSelector(state => state.blog)
     const notification = useAppSelector(state => state.notification)
-    // reset messageObj to null after 2s, so you don't need to set them in components
-    // if (messageObj) {
-    //     setTimeout(() => setMessageObj(null), 5000)
-    // }
     // try to get saved login info from localStorage
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedBlogAppUser')
@@ -36,9 +31,6 @@ const App = () => {
 
     // get blogs form server
     useEffect(() => {
-        // blogService.getAll().then(blogs =>
-        //     setBlogs(blogs)
-        // )
         dispatch(initializeBlogs())
     }, [dispatch])
 
@@ -65,7 +57,7 @@ const App = () => {
                     <strong><em>{user.username}</em></strong> logged in.
                     <button onClick={logoutHandler}>logout</button>
                 </div>
-                <Blogs blogs={blogs} setBlogs={setBlogs} user={user}/>
+                <Blogs user={user}/>
                 {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
                 <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
                     <BlogForm blogFormRef={blogFormRef}/>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import { BlogType, UserType } from '../types'
-import blogsService from '../services/blogs.service'
 import { AxiosError } from 'axios'
 import {useAppDispatch} from "../app/hooks";
-import {updateBolgLikes} from "../features/blogReducers";
+import {removeBlogById, updateBolgLikes} from "../features/blogReducers";
 
 interface BlogProps {
     blog: BlogType
-    blogs: BlogType[]
-    setBlogs: React.Dispatch<BlogType[]>
     user:UserType
 }
 
@@ -22,7 +19,7 @@ function errorHandler(error: unknown) {
   }
 }
 
-const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
+const Blog = ({ blog,user }: BlogProps): JSX.Element => {
   const [visible, setVisible] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   // const hideWhenVisible = { display: visible ? 'none' : '' }
@@ -37,10 +34,11 @@ const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
     try {
       if (window.confirm(`Remove blog ${title} by ${author}`)) {
         // deleteBlogByID(id:Pick)
-        const res = await blogsService.deleteBlogByID({ id })
-        if (res.status === 204) {
-          setBlogs(blogs.filter(blog => blog.id !== id))
-        }
+        // const res = await blogsService.deleteBlogByID({ id })
+        // if (res.status === 204) {
+        //   setBlogs(blogs.filter(blog => blog.id !== id))
+        // }
+        dispatch(removeBlogById({id}))
       }
     } catch (error) {
       errorHandler(error)
