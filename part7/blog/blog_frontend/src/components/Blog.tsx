@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { BlogType, UserType } from '../types'
 import blogsService from '../services/blogs.service'
 import { AxiosError } from 'axios'
+import {useAppDispatch} from "../app/hooks";
+import {updateBolgLikes} from "../features/blogReducers";
 
 interface BlogProps {
     blog: BlogType
@@ -22,6 +24,7 @@ function errorHandler(error: unknown) {
 
 const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
   const [visible, setVisible] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
   // const hideWhenVisible = { display: visible ? 'none' : '' }
   const showWhenVisible = { display: visible ? '' : 'none' }
   //  change visibility conversely
@@ -46,10 +49,11 @@ const Blog = ({ blog, blogs, setBlogs,user }: BlogProps): JSX.Element => {
   // +1 like
   const likeHandler = async (id: Pick<BlogType, 'id'>) => {
     try {
-      const updatedBlog = await blogsService.addBlogLike(id)
+      dispatch(updateBolgLikes(id))
+      // const updatedBlog = await blogsService.addBlogLike(id)
       // awesome
       // setBlogs(blogs.map(blog => blog.id === id.id ? {...blog, likes: blog.likes + 1} : blog))
-      setBlogs(blogs.map(blog => blog.id === id.id ? updatedBlog : blog))
+      // setBlogs(blogs.map(blog => blog.id === id.id ? updatedBlog : blog))
     } catch (error) {
       errorHandler(error)
     }

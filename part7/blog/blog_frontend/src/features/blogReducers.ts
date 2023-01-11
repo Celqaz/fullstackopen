@@ -15,12 +15,19 @@ const blogSlice = createSlice({
         },
         addBlog : (state,action:PayloadAction<BlogType>)=>{
             return [...state, action.payload]
+        },
+        updateBlog: (state,action:PayloadAction<BlogType>)=>{
+            // const sameState = [...state].filter(blog =>blog.id !== action.payload.id)
+            // return [...sameState, action.payload]
+            return state.map(blog =>
+                blog.id !== action.payload.id ? blog : action.payload
+            )
         }
     }
 })
 
 
-export const {setBlogs,addBlog} = blogSlice.actions
+export const {setBlogs,addBlog,updateBlog} = blogSlice.actions
 export const initializeBlogs = ()=>{
     return async (dispatch:AppDispatch) =>{
         const blogs : BlogType[] = await blogService.getAll()
@@ -36,11 +43,11 @@ export const addNewBlog = (newBlog: newBlogType)=>{
     }
 }
 
-// export const addNewAnecdotes = (content: Pick<AnecdoteType, "content" | "author" | "info" >) => {
-//     return async (dispatch: AppDispatch) => {
-//         const anecdotes = await anecdotesService.postNew(content)
-//         dispatch(addAnecdote(anecdotes))
-//     }
-// }
+export const updateBolgLikes = (id: Pick<BlogType, 'id'>)=>{
+    return async (dispatch: AppDispatch)=>{
+        const updatedNewBlog = await blogsService.addBlogLike(id)
+        dispatch(updateBlog(updatedNewBlog))
+    }
+}
 
 export default blogSlice.reducer
