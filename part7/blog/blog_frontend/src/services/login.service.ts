@@ -1,11 +1,9 @@
 import axios from 'axios'
+import {credentialsType} from "../types";
 
 const baseUrl = 'http://localhost:3001/api/login'
 
-interface credentialsType {
-    username: string,
-    password: string
-}
+
 
 const login = async (credentials: credentialsType) => {
   const response = await axios.post(baseUrl, credentials)

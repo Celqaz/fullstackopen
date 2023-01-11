@@ -25,3 +25,9 @@ export enum MessageType {
     Success = 'successInfo',
     Failure = 'failureInfo'
 }
+
+// login type
+export interface credentialsType {
+    username: string,
+    password: string
+}

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { BlogType, UserType } from '../types'
+import { BlogType } from '../types'
 import { AxiosError } from 'axios'
-import {useAppDispatch} from "../app/hooks";
+import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {removeBlogById, updateBolgLikes} from "../features/blogReducers";
 
 interface BlogProps {
     blog: BlogType
-    user:UserType
 }
 
 function errorHandler(error: unknown) {
@@ -19,9 +18,10 @@ function errorHandler(error: unknown) {
   }
 }
 
-const Blog = ({ blog,user }: BlogProps): JSX.Element => {
+const Blog = ({ blog }: BlogProps): JSX.Element => {
   const [visible, setVisible] = useState<boolean>(false)
   const dispatch = useAppDispatch()
+  const user = useAppSelector(state => state.user)
   // const hideWhenVisible = { display: visible ? 'none' : '' }
   const showWhenVisible = { display: visible ? '' : 'none' }
   //  change visibility conversely

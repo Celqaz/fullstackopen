@@ -1,18 +1,13 @@
 import React, {useState} from 'react'
-import loginService from '../services/login.service'
 import {AxiosError} from 'axios'
-import {UserType, MessageType} from '../types'
+import {MessageType} from '../types'
 //router
 import blogsService from '../services/blogs.service'
 import {useAppDispatch} from "../app/hooks";
 import {displayNotification} from "../features/notificatonReducers";
+import {userLogin} from "../features/userReducer";
 
-interface LoginFormProps {
-    setUser: React.Dispatch<UserType>
-    // setMessageObj: React.Dispatch<React.SetStateAction<TempMessageProps | null>>
-}
-
-const LoginForm = ({setUser}: LoginFormProps): JSX.Element => {
+const LoginForm = (): JSX.Element => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -29,8 +24,9 @@ const LoginForm = ({setUser}: LoginFormProps): JSX.Element => {
     const formSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
-            const user = await loginService.login({username, password})
-            setUser(user)
+            // const user = await loginService.login({username, password})
+            // setUser(user)
+            const user = await dispatch(userLogin({username, password}))
             window.localStorage.setItem(
                 'loggedBlogAppUser', JSON.stringify(user)
             )
