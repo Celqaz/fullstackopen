@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {UserInfo, UserType} from "../types";
 import usersService from "../services/usersService";
+import {Link} from "react-router-dom";
 
 export default function Users(): JSX.Element {
     const [userInfo, setUserInfo] = useState<UserInfo[]>([])
@@ -9,6 +10,7 @@ export default function Users(): JSX.Element {
             .then(data => {
                 const getUserInfo: UserInfo[] = []
                 data.map((user: UserType) => getUserInfo.push({
+                    id:user.id,
                         username: user.username,
                         blogsCreated: user.blogs.length
                     })
@@ -31,7 +33,7 @@ export default function Users(): JSX.Element {
                 {userInfo.map(user => {
                     return (
                         <tr key={user.username}>
-                            <td>{user.username}</td>
+                            <td><Link to={`/users/${user.id}`}>{user.username}</Link></td>
                             <td>{user.blogsCreated}</td>
                         </tr>
                     )

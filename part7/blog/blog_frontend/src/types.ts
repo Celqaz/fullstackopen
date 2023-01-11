@@ -34,6 +34,7 @@ export interface credentialsType {
 }
 
 export interface UserInfo {
+    id:string,
     username: string,
     blogsCreated: number
 }

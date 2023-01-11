@@ -29,6 +29,9 @@ PUT http://localhost:3001/api/blogs/629ad55247ac1c1622206036
 ### GET all users
 GET http://localhost:3001/api/users
 
+### GET all users
+GET http://localhost:3001/api/users/63ae623b5004f10357475bfd
+
 ### POST a New User
 POST http://localhost:3001/api/users
 Content-Type: application/json

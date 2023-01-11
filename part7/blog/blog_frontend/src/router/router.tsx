@@ -3,6 +3,7 @@ import App from "../App";
 import Blogs from "../components/Blogs";
 import React from "react";
 import Users from "../components/Users";
+import User from "../components/User";
 
 
 export const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 path: "users",
                 element: <Users/>
+            },
+            {
+                path: "users/:id",
+                element: <User/>
             },
         ]
     }
