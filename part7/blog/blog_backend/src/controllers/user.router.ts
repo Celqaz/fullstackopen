@@ -10,6 +10,7 @@ require('express-async-errors')
 
 const userRouter = Router()
 
+// get all user info
 userRouter.get<UserInDB[]>('/', async (_request, response) => {
     const allUsers = await UserModel.find({})
         .populate<{ blogs: BlogModelType }>('blogs',{title:1,url:1,author:1})
