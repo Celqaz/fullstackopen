@@ -1,6 +1,7 @@
 import React from 'react'
 import {BlogType, UserType} from '../types'
 import Blog from './Blog'
+import {useAppSelector} from "../app/hooks";
 
 interface BlogProps {
     blogs: BlogType[]
@@ -10,8 +11,9 @@ interface BlogProps {
 
 const Blogs = ({blogs, setBlogs, user}: BlogProps): JSX.Element => {
 
-    const sortedByLikesBlog = blogs.sort((a, b) => b.likes - a.likes)
-    console.log('blogs',blogs)
+    const newBlogs = useAppSelector(state => state.blog)
+    const sortedByLikesBlog = [...newBlogs].sort((a, b) => b.likes - a.likes)
+    console.log('newBlogs',newBlogs)
 
     return (
         <div>
