@@ -2,6 +2,7 @@ export interface UserType {
     id: string,
     username: string
     name?: string
+    blogs: BlogType[]
 }
 
 export interface BlogType {
@@ -30,4 +31,9 @@ export enum MessageType {
 export interface credentialsType {
     username: string,
     password: string
+}
+
+export interface UserInfo {
+    username: string,
+    blogsCreated: number
 }

@@ -7,6 +7,7 @@ import loginService from "../services/login.service";
 const initialUser: UserType = {
     id: "",
     username: "",
+    blogs:[]
 }
 
 const userSlice = createSlice({

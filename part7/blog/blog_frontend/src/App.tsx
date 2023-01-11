@@ -1,18 +1,20 @@
-import React, {useEffect, useRef} from 'react'
-import Blogs from './components/Blogs'
+import React, {useEffect} from 'react'
+// import Blogs from './components/Blogs'
 import LoginForm from './components/LoginForm'
-import BlogForm from './components/BlogForm'
+// import BlogForm from './components/BlogForm'
 import TempMessage from './components/utils/TempMessage'
 // style
 import './app.css'
-import Toggleable from './components/Toggleable'
+// import Toggleable from './components/Toggleable'
 import {useAppDispatch, useAppSelector} from "./app/hooks";
 import {initializeBlogs} from "./features/blogReducers";
 import {initializeUser} from "./features/userReducer";
-
+// router
+import {Outlet} from "react-router-dom";
+import Footer from "./components/Footer";
 const App = () => {
     const user = useAppSelector(state => state.user)
-    const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
+    // const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
     const dispatch = useAppDispatch()
     const notification = useAppSelector(state => state.notification)
     // try to get saved login info from localStorage
@@ -46,11 +48,13 @@ const App = () => {
                     <strong><em>{user.username}</em></strong> logged in.
                     <button onClick={logoutHandler}>logout</button>
                 </div>
-                <Blogs/>
+                <Outlet/>
+                {/*<Blogs/>*/}
                 {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
-                <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
-                    <BlogForm blogFormRef={blogFormRef}/>
-                </Toggleable>
+                {/*<Toggleable buttonLabel={'add new note'} ref={blogFormRef}>*/}
+                {/*    <BlogForm blogFormRef={blogFormRef}/>*/}
+                {/*</Toggleable>*/}
+                <Footer/>
             </div>
         )
     }

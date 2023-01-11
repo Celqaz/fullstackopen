@@ -10,9 +10,7 @@ const setToken = (newToken: string) => {
 
 // get all blogs
 const getAll = async () => {
-  console.log('hey, res')
   const response = await axios.get(baseUrl)
-  console.log('res',response.data)
   return response.data
 }
 
