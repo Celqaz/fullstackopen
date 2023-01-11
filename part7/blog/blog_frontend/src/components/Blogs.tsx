@@ -13,7 +13,6 @@ const Blogs = ({blogs, setBlogs, user}: BlogProps): JSX.Element => {
 
     const newBlogs = useAppSelector(state => state.blog)
     const sortedByLikesBlog = [...newBlogs].sort((a, b) => b.likes - a.likes)
-    console.log('newBlogs',newBlogs)
 
     return (
         <div>

@@ -68,7 +68,7 @@ const App = () => {
                 <Blogs blogs={blogs} setBlogs={setBlogs} user={user}/>
                 {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
                 <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
-                    <BlogForm blogs={blogs} setBlogs={setBlogs} blogFormRef={blogFormRef}/>
+                    <BlogForm blogFormRef={blogFormRef}/>
                 </Toggleable>
             </div>
         )
