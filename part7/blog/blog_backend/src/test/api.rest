@@ -2,6 +2,10 @@
 GET http://localhost:3001/api/blogs
 Accept: application/json
 
+### GET One Blog By ID
+GET http://localhost:3001/api/blogs/63beb3a62139b886a37353a7
+Accept: application/json
+
 ### POST a New BlogModel
 POST http://localhost:3001/api/blogs
 Content-Type: application/json

@@ -42,6 +42,7 @@ const App = () => {
     } else {
         return (
             <div className={'container'}>
+                <h2>Blogs</h2>
                 {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
                 {/*<TempMessage type={MessageType.Failure} message={'What\'s up'}/>*/}
                 <div>

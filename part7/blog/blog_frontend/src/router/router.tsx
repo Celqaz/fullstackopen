@@ -4,6 +4,7 @@ import Blogs from "../components/Blogs";
 import React from "react";
 import Users from "../components/Users";
 import User from "../components/User";
+import BlogInfo from "../components/BlogInfo";
 
 
 export const router = createBrowserRouter([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: "users/:id",
                 element: <User/>
+            },
+            {
+                path: "blogs/:id",
+                element: <BlogInfo/>
             },
         ]
     }

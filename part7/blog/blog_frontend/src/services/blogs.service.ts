@@ -14,6 +14,10 @@ const getAll = async () => {
   return response.data
 }
 
+const getBlogByID = async (id: string) => {
+  const response = await axios.get(`${baseUrl}/${id}`)
+  return response.data
+}
 // post a new blog
 const postNewBlog = async (newBlog: newBlogType) => {
   const config = {
@@ -41,5 +45,5 @@ const deleteBlogByID = async ({ id }:Pick<BlogType, 'id'>) => {
   return  await axios.delete(`${baseUrl}/${id}`, config)
 }
 
-const blogsService = { getAll, setToken,postNewBlog,addBlogLike,deleteBlogByID }
+const blogsService = { getAll, getBlogByID, setToken,postNewBlog,addBlogLike,deleteBlogByID }
 export default blogsService

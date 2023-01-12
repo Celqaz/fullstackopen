@@ -26,12 +26,8 @@ blogRouter.get<Blog[]>('/', async (_request, response) => {
 
 // Get Blog by ID
 blogRouter.get<BlogInDB>('/:id', async (request, response) => {
-    // BlogModel
-    //     .find({})
-    //     .then(blogs => {
-    //         response.json(blogs)
-    //     })
     const resultBlogs = await BlogModel.findById(request.params.id)
+        .populate<{ user: UserReturnedMongoType }>('user',{id:1,username:1,name:1})
     if (resultBlogs) {
         response.json(resultBlogs)
     } else {

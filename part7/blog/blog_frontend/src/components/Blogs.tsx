@@ -14,7 +14,6 @@ const Blogs = (): JSX.Element => {
 
     return (
         <div>
-            <h2>Blogs</h2>
             <div className={'blogsContent'}>
                 {sortedByLikesBlog.map(blog =>
                     <Blog blog={blog} key={blog.id}/>
