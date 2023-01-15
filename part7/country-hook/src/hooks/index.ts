@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import countryService from "../services/countryService";
 import {CountryType} from "../types/types";
 const useField = (type : string) => {
