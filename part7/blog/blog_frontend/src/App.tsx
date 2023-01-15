@@ -36,7 +36,7 @@ const App = () => {
         )
     } else {
         return (
-            <div className={'container'}>
+            <div className={'flex-col font-light'}>
                 <Nav/>
                 <h2>Blog App</h2>
                 {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
