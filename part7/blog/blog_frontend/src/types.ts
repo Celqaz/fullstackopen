@@ -5,7 +5,7 @@ export interface UserType {
     blogs: BlogType[]
 }
 
-type BlogCommentType = {
+export type BlogCommentType = {
     content: string,
     id: string
 }
@@ -43,4 +43,9 @@ export interface UserInfo {
     id:string,
     username: string,
     blogsCreated: number
+}
+
+export interface CommentType {
+    content: string,
+    blogID: string
 }
