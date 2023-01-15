@@ -30,6 +30,7 @@ blogRouter.get<Blog[]>('/', async (_request, response) => {
 blogRouter.get<BlogInDB>('/:id', async (request, response) => {
     const resultBlogs = await BlogModel.findById(request.params.id)
         .populate<{ user: UserReturnedMongoType }>('user',{id:1,username:1,name:1})
+        .populate<{comments: CommentType[]}>('comments',{content:1})
     if (resultBlogs) {
         response.json(resultBlogs)
     } else {
