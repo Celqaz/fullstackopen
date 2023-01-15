@@ -6,11 +6,13 @@ import blogsService from '../services/blogs.service'
 import {useAppDispatch} from "../app/hooks";
 import {displayNotification} from "../features/notificatonReducers";
 import {userLogin} from "../features/userReducer";
+import {useNavigate} from "react-router-dom";
 
 const LoginForm = (): JSX.Element => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const navigate =useNavigate();
 
     const dispatch = useAppDispatch()
 
@@ -40,7 +42,7 @@ const LoginForm = (): JSX.Element => {
             //     message: 'Successfully log in.'
             // }))
             dispatch(displayNotification({message: 'Successfully log in.'}))
-
+            navigate('/')
         } catch (error) {
             if (error instanceof AxiosError) {
                 dispatch(displayNotification(

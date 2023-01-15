@@ -5,7 +5,7 @@ import React from "react";
 import Users from "../components/Users";
 import User from "../components/User";
 import BlogInfo from "../components/BlogInfo";
-
+import LoginForm from "../components/LoginForm";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +15,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Blogs/>,
+            },
+            {
+                path:"login",
+                element:<LoginForm/>,
             },
             {
                 path: "users",

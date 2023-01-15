@@ -30,8 +30,6 @@ export const initializeUser = ()=>{
             const user = JSON.parse(loggedUserJSON)
             dispatch(setUser(user))
             blogService.setToken(user.token)
-            console.log('User Get')
-            // noteService.setToken(user.token)
         }
     }
 }

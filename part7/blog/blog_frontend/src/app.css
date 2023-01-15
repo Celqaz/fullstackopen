@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+/*body {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    margin: 0 auto;*/
+/*    height: 100vh;*/
+/*}*/
 
 .container {
     margin: 1rem;
@@ -48,4 +55,14 @@ button {
 .failureInfo {
     border-color: darkred;
     color: darkred;
+}
+
+/*nav*/
+nav{
+    background-color: lightgray;
+    padding: 0.5rem 0;
+}
+
+nav span{
+    padding: 0 1rem;
 }

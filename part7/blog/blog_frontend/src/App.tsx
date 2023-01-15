@@ -12,6 +12,7 @@ import {initializeUser} from "./features/userReducer";
 // router
 import {Outlet} from "react-router-dom";
 import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 const App = () => {
     const user = useAppSelector(state => state.user)
     // const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
@@ -23,12 +24,6 @@ const App = () => {
         dispatch(initializeUser())
         dispatch(initializeBlogs())
     }, [dispatch])
-
-    // remove saved localStorage to logout
-    const logoutHandler = () => {
-        window.localStorage.removeItem('loggedBlogAppUser')
-        console.log('logout')
-    }
 
     // if localStorage doesn't have logged user info, then redirect to log in component
     // otherwise display common content
@@ -42,19 +37,10 @@ const App = () => {
     } else {
         return (
             <div className={'container'}>
+                <Nav/>
                 <h2>Blogs</h2>
                 {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
-                {/*<TempMessage type={MessageType.Failure} message={'What\'s up'}/>*/}
-                <div>
-                    <strong><em>{user.username}</em></strong> logged in.
-                    <button onClick={logoutHandler}>logout</button>
-                </div>
                 <Outlet/>
-                {/*<Blogs/>*/}
-                {/*<button onClick={changeDisplayOfNewNote}>add new note</button>*/}
-                {/*<Toggleable buttonLabel={'add new note'} ref={blogFormRef}>*/}
-                {/*    <BlogForm blogFormRef={blogFormRef}/>*/}
-                {/*</Toggleable>*/}
                 <Footer/>
             </div>
         )

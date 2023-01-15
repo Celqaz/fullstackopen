@@ -14,15 +14,16 @@ const Blogs = (): JSX.Element => {
 
     return (
         <div>
+            {/* add new blog*/}
+            <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
+                <BlogForm blogFormRef={blogFormRef}/>
+            </Toggleable>
             <div className={'blogsContent'}>
                 {sortedByLikesBlog.map(blog =>
                     <Blog blog={blog} key={blog.id}/>
                 )}
             </div>
-            {/* add new*/}
-            <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
-                <BlogForm blogFormRef={blogFormRef}/>
-            </Toggleable>
+
         </div>
     )
 }
