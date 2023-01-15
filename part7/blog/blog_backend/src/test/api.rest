@@ -54,3 +54,21 @@ Content-Type: application/json
   "username": "test",
   "password": "test"
 }
+
+### GET a comment
+GET http://localhost:3001/api/comments
+Content-Type: application/json
+
+### POST a Comment
+POST http://localhost:3001/api/comments
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYzYWU2MjRhNTAwNGYxMDM1NzQ3NWMwMiIsImlhdCI6MTY3Mzc3Nzc5NywiZXhwIjoxNjczNzgxMzk3fQ.Bh3Ae1zHWWzb239_XoCpkJ3VpL1D1L-uSSFvctKXj-I
+
+{
+  "blogID": "63beb3a62139b886a37353a7",
+  "content": "The bright sun was extinguish'd, and the stars"
+}
+
+### DELETE ALL COMMENTS
+DELETE http://localhost:3001/api/comments
+Content-Type: application/json

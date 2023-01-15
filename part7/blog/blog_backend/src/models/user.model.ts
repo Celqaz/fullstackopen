@@ -11,15 +11,6 @@ export interface UserReturnedMongoType {
     blogs: Types.ObjectId[],
 }
 
-// export interface userTypeInMongoDB {
-//     username: string,
-//     name: string,
-//     password: string,
-//     _id?: Types.ObjectId,
-//     __v?: string,
-//     id?: string,
-// }
-
 // 2. Create a Schema corresponding to the document interface.
 const userSchema = new Schema<UserReturnedMongoType>({
     username: {

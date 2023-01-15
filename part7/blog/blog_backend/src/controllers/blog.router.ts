@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken"
 import {SECRET} from "../utils/config";
 import {CustomRequest} from "../@types/express";
 import {UserJwtPayload} from "../@types/jwt";
+import {CommentType} from "../models/comment.model";
 
 require('express-async-errors')
 
@@ -21,6 +22,7 @@ blogRouter.get<Blog[]>('/', async (_request, response) => {
     //     })
     const allBlogs = await BlogModel.find({})
         .populate<{ user: UserReturnedMongoType }>('user', {username: 1, name: 1})
+        .populate<{comments: CommentType[]}>('comments',{content:1})
     response.json(allBlogs)
 })
 
@@ -52,7 +54,8 @@ blogRouter.post('/', async (request: CustomRequest, response) => {
                 author: body.author,
                 url: body.url,
                 likes: body.likes === undefined ? 0 : body.likes,
-                user: user._id
+                user: user._id,
+                comments:[]
             }
         )
         // blog

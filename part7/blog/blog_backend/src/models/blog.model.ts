@@ -8,6 +8,7 @@ export interface BlogModelType {
     url: string,
     likes?: number,
     user: Types.ObjectId,
+    comments: Types.ObjectId[],
 }
 
 // interface BlogTypeInMongoDB {
@@ -45,7 +46,11 @@ const blogSchema = new Schema<BlogModelType>({
     user:{
         type:Schema.Types.ObjectId,
         ref:'UserModel'
-    }
+    },
+    comments:[{
+        type: Schema.Types.ObjectId,
+        ref:'CommentModel'
+    }]
 
     // author: {
     //     type: String,

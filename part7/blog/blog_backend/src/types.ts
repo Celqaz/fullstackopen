@@ -45,6 +45,12 @@ interface UserTokenType{
     id: Types.ObjectId,
 }
 
+interface CommentRequestType {
+    content: string,
+    userID: string,
+    blogID:string
+}
+
 export type {
     Blog,
     BlogInDB,
@@ -52,6 +58,7 @@ export type {
     AuthorWithMostLikes,
     User,
     UserInDB,
-    UserTokenType
+    UserTokenType,
+    CommentRequestType
 }
 
