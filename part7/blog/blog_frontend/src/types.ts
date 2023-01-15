@@ -5,6 +5,11 @@ export interface UserType {
     blogs: BlogType[]
 }
 
+type BlogCommentType = {
+    content: string,
+    id: string
+}
+
 export interface BlogType {
     id: string
     title: string
@@ -12,6 +17,7 @@ export interface BlogType {
     url: string
     likes: number
     user: UserType
+    comments: BlogCommentType[]
 }
 
 // export type newBlogType = Omit<BlogType, "id"|"likes">

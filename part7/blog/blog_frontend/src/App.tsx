@@ -38,7 +38,7 @@ const App = () => {
         return (
             <div className={'container'}>
                 <Nav/>
-                <h2>Blogs</h2>
+                <h2>Blog App</h2>
                 {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
                 <Outlet/>
                 <Footer/>

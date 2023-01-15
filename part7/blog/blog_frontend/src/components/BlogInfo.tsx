@@ -48,7 +48,6 @@ export default function BlogInfo() {
         return <div></div>
     }
 
-
     return (
         <div>
             <h1>{blogInfo.title} {blogInfo.author}</h1>
@@ -60,6 +59,10 @@ export default function BlogInfo() {
                 </span>
             </div>
             <div>added by {blogInfo.user.username}</div>
+            <h3>Comments</h3>
+            <ul>
+                {blogInfo.comments.map(comment => <li key={comment.id}>{comment.content}</li>)}
+            </ul>
         </div>
     )
 }
