@@ -1,0 +1,10 @@
+#node modules
+blog/blog_frontend/node_modules
+blog/blog_backend/node_modules
+country-hook/node_modules
+notes/node_modules
+routed-anecdotes/node_modules
+ultimate_hooks/node_modules
+.idea
+# files
+.env
