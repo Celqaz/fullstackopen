@@ -29,19 +29,20 @@ const App = () => {
     // otherwise display common content
     if (!user.username) {
         return (
-            <div className={'container'}>
+            <div className={''}>
                 {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
                 <LoginForm/>
             </div>
         )
     } else {
         return (
-            <div className={'flex-col font-light'}>
+            <div className={'bg-primary text-gray-800 h-screen w-screen'}>
                 <Nav/>
-                <h2>Blog App</h2>
-                {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
-                <Outlet/>
-                <Footer/>
+                <div className={'flex flex-col w-4/5 md:w-3/5 mx-auto'}>
+                    {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
+                    <Outlet/>
+                    <Footer/>
+                </div>
             </div>
         )
     }

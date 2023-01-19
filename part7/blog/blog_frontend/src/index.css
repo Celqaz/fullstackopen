@@ -1,6 +1,19 @@
 /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+input{
+    @apply outline-none bg-transparent border-b-2 border-gray-500
+}
+
+.successInfo {
+    @apply border-green-500 text-green-500
+}
+
+.failureInfo {
+    @apply border-red-500 text-red-500
+}

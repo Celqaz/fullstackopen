@@ -2,7 +2,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {MessageType, TempMessageProps} from "../types";
 import {AppDispatch} from "../app/store";
 
-const initialNotification: TempMessageProps = {type: MessageType.Success, message: null}
+const initialNotification: TempMessageProps = {type: MessageType.Success, message: ''}
+// const initialNotification: TempMessageProps = {type: MessageType.Success, message: null}
 const notificationSlice = createSlice({
     name: 'notification',
     initialState: initialNotification,

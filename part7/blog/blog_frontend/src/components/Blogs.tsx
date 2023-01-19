@@ -13,12 +13,12 @@ const Blogs = (): JSX.Element => {
     const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
 
     return (
-        <div>
+        <div className={''}>
             {/* add new blog*/}
             <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
                 <BlogForm blogFormRef={blogFormRef}/>
             </Toggleable>
-            <div className={'blogsContent'}>
+            <div >
                 {sortedByLikesBlog.map(blog =>
                     <Blog blog={blog} key={blog.id}/>
                 )}

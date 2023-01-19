@@ -15,7 +15,7 @@ export default function Nav() {
 
     return (
         // 长、宽、颜色；排列相关：flex；对齐方式；自适应方式
-        <nav className={'flex items-center justify-between flex-wrap bg-gray-800 p-3 text-white'}>
+        <nav className={'flex items-center bg-gray-800 p-3 text-white'}>
             {/*<nav className={'h-12 w-screen bg-gray-800 flex flex-row justify-around items-center flex-wrap'}>*/}
             {/*flex-shrink-0 prevent shrink*/}
             {/*logo*/}
@@ -29,7 +29,7 @@ export default function Nav() {
                     className="font-bold text-xl text-white">Blog App</span>
             </div>
             {/*right*/}
-            <div className={'w-full flex justify-center items-center w-auto flex-grow font-light'}>
+            <div className={'w-full flex items-center w-auto flex-grow font-light'}>
                 {/*menu*/}
                 <div className="flex-grow text-xl">
                     <Link className={'inline-block mr-4 hover:text-green-300'} to={'/'}>Blogs</Link>
