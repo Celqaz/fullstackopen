@@ -15,18 +15,23 @@ export default function Nav() {
 
     return (
         // 长、宽、颜色；排列相关：flex；对齐方式；自适应方式
-        <nav className={'flex items-center bg-gray-800 p-3 text-white'}>
+        <nav className={'flex items-center bg-gray-800 p-3 text-white fixed t-0 w-full drop-shadow-xl'}>
             {/*<nav className={'h-12 w-screen bg-gray-800 flex flex-row justify-around items-center flex-wrap'}>*/}
             {/*flex-shrink-0 prevent shrink*/}
             {/*logo*/}
             <div className={'flex items-center flex-shrink-0 mr-6'}>
-                <svg className="object-cover fill-white h-8 w-8 mr-2" viewBox="0 0 54 54"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/>
-                </svg>
-                <span
-                    className="font-bold text-xl text-white">Blog App</span>
+                <Link to={'/'}>
+                    <svg className="object-cover fill-white h-8 w-8 mr-2" viewBox="0 0 54 54"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/>
+                    </svg>
+                </Link>
+                <Link to={'/'}>
+                    <span
+                        className="font-bold text-xl text-white">Blog App
+                </span>
+                </Link>
             </div>
             {/*right*/}
             <div className={'w-full flex items-center w-auto flex-grow font-light'}>

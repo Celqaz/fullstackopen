@@ -13,7 +13,7 @@ const Blogs = (): JSX.Element => {
     const blogFormRef = useRef<{ toggleVisibility: () => void; } | undefined>()
 
     return (
-        <div className={''}>
+        <div className={'mb-8 mt-16'}>
             {/* add new blog*/}
             <Toggleable buttonLabel={'add new note'} ref={blogFormRef}>
                 <BlogForm blogFormRef={blogFormRef}/>

@@ -36,13 +36,14 @@ const App = () => {
         )
     } else {
         return (
-            <div className={'bg-primary text-gray-800 h-screen w-screen'}>
+            <div className={'bg-primary text-gray-800 relative min-h-screen'}>
                 <Nav/>
-                <div className={'flex flex-col w-4/5 md:w-3/5 mx-auto'}>
+                <div className={'flex flex-col w-4/5 md:w-3/5 mx-auto '}>
                     {notification.message && <TempMessage type={notification.type} message={notification.message}/>}
                     <Outlet/>
-                    <Footer/>
+
                 </div>
+                <Footer/>
             </div>
         )
     }

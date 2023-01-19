@@ -20,9 +20,9 @@ export default function Users(): JSX.Element {
     }, [])
 
     return (
-        <div>
+        <div className={'mt-20 mb-8'}>
             <h1>Users</h1>
-            <table>
+            <table className={'w-64 text-center'}>
                 <thead>
                 <tr>
                     <th>User</th>
@@ -33,7 +33,7 @@ export default function Users(): JSX.Element {
                 {userInfo.map(user => {
                     return (
                         <tr key={user.username}>
-                            <td><Link to={`/users/${user.id}`}>{user.username}</Link></td>
+                            <td><Link className={'underline decoration-2 decoration-blue-500'} to={`/users/${user.id}`}>{user.username}</Link></td>
                             <td>{user.blogsCreated}</td>
                         </tr>
                     )

@@ -19,10 +19,10 @@ export default function User() {
     }
 
     return (
-        <div>
+        <div className={'mt-20 mb-8'}>
             <h1> {userInfo.username}</h1>
-            <h2> added blogs</h2>
-            <ul>
+            <h2 className={'my-2'}> Added blogs:</h2>
+            <ul className={'list-disc list-inside my-2'}>
                 {userInfo.blogs.map( blog => <li key={blog.id}>{blog.title}</li>)}
             </ul>
         </div>

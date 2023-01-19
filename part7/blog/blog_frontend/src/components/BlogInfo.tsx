@@ -8,6 +8,8 @@ import {AxiosError} from "axios";
 import commentServices from "../services/comment.service";
 import {useField} from "../hooks";
 import {displayNotification} from "../features/notificatonReducers";
+import {AiOutlineHeart} from "react-icons/ai";
+
 
 function errorHandler(error: unknown) {
     if (error instanceof AxiosError) {
@@ -80,29 +82,36 @@ export default function BlogInfo() {
     }
 
     return (
-        <div>
-            <h1>{blogInfo.title} {blogInfo.author}</h1>
-            <div><a href={blogInfo.url}>{blogInfo.url}</a></div>
-            <div>
-                {likes} likes
+        <div className={'w-96 sm:w-1/2 mx-auto mt-20 mb-8'}>
+            <h1>{blogInfo.title} - {blogInfo.author}</h1>
+            <div className={'my-0.5 italic underline decoration-blue-500 '}><a href={blogInfo.url}>{blogInfo.url}</a>
+            </div>
+            <div className={'mt-2'}>
+                <span> <span className={'font-bold'}>{likes}</span> likes</span>
                 <span>
-                    <button id={'likeBlogButton'} onClick={() => likeHandler({id: blogInfo.id})}>like</button>
+                    <button className={''} id={'likeBlogButton'} onClick={() => likeHandler({id: blogInfo.id})}>
+                        <AiOutlineHeart className={'text-red-400 mx-1 text-xl'}/>
+                    </button>
                 </span>
             </div>
-            <div>added by {blogInfo.user.username}</div>
-            <h3>Comments</h3>
+            <div className={'mt-2'}>added by <span className={'italic'}>{blogInfo.user.username}</span></div>
+            <hr className={'my-2'}/>
+            <h2>Comments</h2>
             {/*<CommentForm  blogID={blogInfo.id}/>*/}
             {/*form*/}
-            <form onSubmit={formSubmitHandler}>
-                <input
-                    type={commentField.type}
-                    value={commentField.value}
-                    onChange={commentField.onChange}
-                />
-                <button type={'submit'}>Submit</button>
-            </form>
-            <ul>
-                {blogComments.map(comment => <li key={comment.id}>{comment.content}</li>)}
+                <form className={'my-4'} onSubmit={formSubmitHandler}>
+                    <input
+                        type={commentField.type}
+                        value={commentField.value}
+                        onChange={commentField.onChange}
+                        placeholder={'add your comment'}
+                    />
+                    <button className={'bg-blue-400 hover:bg-blue-500 text-primary font-normal rounded-xl px-2'}
+                            type={'submit'}>Submit
+                    </button>
+                </form>
+            <ul className={'list-disc list-inside'}>
+                {blogComments.map(comment => <li className={'my-1'} key={comment.id}>{comment.content}</li>)}
             </ul>
         </div>
     )
