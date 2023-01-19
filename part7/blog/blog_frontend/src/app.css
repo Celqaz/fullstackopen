@@ -1,0 +1,72 @@
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/*!*body {*!*/
+/*!*    display: flex;*!*/
+/*!*    align-items: center;*!*/
+/*!*    justify-content: center;*!*/
+/*!*    margin: 0 auto;*!*/
+/*!*    height: 100vh;*!*/
+/*!*}*!*/
+
+/*.container {*/
+/*    margin: 1rem;*/
+/*}*/
+
+/*label {*/
+/*}*/
+
+/*form div{*/
+/*    padding: 0.5rem;*/
+/*}*/
+
+/*button {*/
+/*    border: none;*/
+/*    padding: 0.3rem;*/
+/*    background-color: dodgerblue;*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*    border-radius: 0.3rem;*/
+/*}*/
+
+/*.blogContent{*/
+/*    border: violet 0.2rem solid;*/
+/*    margin: 1rem 0;*/
+/*    padding: 0.5rem 0;*/
+/*}*/
+
+/*.message {*/
+/*    background-color: lightgrey;*/
+/*    padding: 0.5rem;*/
+/*    border-radius: 0.7rem;*/
+/*    font-weight: bold;*/
+/*    border: lightcoral 0.2rem dashed;*/
+/*    max-width: 30%;*/
+/*    min-width: 200px;*/
+/*    margin: auto;*/
+/*}*/
+
+/*.successInfo {*/
+/*    border-color: forestgreen;*/
+/*    color: forestgreen;*/
+/*}*/
+
+/*.failureInfo {*/
+/*    border-color: darkred;*/
+/*    color: darkred;*/
+/*}*/
+
+/*!*nav*!*/
+/*nav{*/
+/*    background-color: lightgray;*/
+/*    padding: 0.5rem 0;*/
+/*}*/
+
+/*nav span{*/
+/*    padding: 0 1rem;*/
+/*}*/

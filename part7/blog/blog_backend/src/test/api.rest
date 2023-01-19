@@ -1,0 +1,74 @@
+### GET All Blogs
+GET http://localhost:3001/api/blogs
+Accept: application/json
+
+### GET One Blog By ID
+GET http://localhost:3001/api/blogs/63beb3a62139b886a37353a7
+Accept: application/json
+
+### POST a New BlogModel
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYzYWU2MjNiNTAwNGYxMDM1NzQ3NWJmZCIsImlhdCI6MTY3MjM3MzE2MSwiZXhwIjoxNjcyMzc2NzYxfQ.exWZ1RDOGyIYUolk9TIKHekt_okFF5hUb15EHB2qlvs
+
+
+{
+  "title": "New Blog",
+  "author": "H. Wilson",
+  "url": "https://nintendo.com/docs/"
+}
+
+### DELETE a post
+DELETE http://localhost:3001/api/blogs/629ab9d8a56eadad26fa1f1f
+Content-Type: application/json
+
+{
+  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyOTc4NGI3NjE3ZjlkMGY2NGI5YjQ5ZCIsImlhdCI6MTY1NDMwNjIzNiwiZXhwIjoxNjU0MzA5ODM2fQ.4edcZFqsG6-ob768FP0SOGQoG6cvnh5kknRCh1N3lNo"
+}
+
+
+### UPDATE a blog's like
+PUT http://localhost:3001/api/blogs/629ad55247ac1c1622206036
+
+### GET all users
+GET http://localhost:3001/api/users
+
+### GET all users
+GET http://localhost:3001/api/users/63ae623b5004f10357475bfd
+
+### POST a New User
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "root",
+  "name": "testName2",
+  "password": "root"
+}
+
+### login in
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "test"
+}
+
+### GET a comment
+GET http://localhost:3001/api/comments
+Content-Type: application/json
+
+### POST a Comment
+POST http://localhost:3001/api/comments
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYzYWU2MjRhNTAwNGYxMDM1NzQ3NWMwMiIsImlhdCI6MTY3Mzc3Nzc5NywiZXhwIjoxNjczNzgxMzk3fQ.Bh3Ae1zHWWzb239_XoCpkJ3VpL1D1L-uSSFvctKXj-I
+
+{
+  "blogID": "63beb3a62139b886a37353a7",
+  "content": "The bright sun was extinguish'd, and the stars"
+}
+
+### DELETE ALL COMMENTS
+DELETE http://localhost:3001/api/comments
+Content-Type: application/json

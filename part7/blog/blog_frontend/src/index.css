@@ -1,0 +1,39 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-2xl font-bold
+    }
+    h2 {
+        @apply text-xl font-bold
+    }
+    table{
+        @apply table-fixed border border-slate-400 border-collapse my-4
+    }
+    thead{
+        @apply bg-gray-200 text-gray-800
+    }
+    th,td {
+        @apply border border-slate-400 py-1
+    }
+    td{
+        @apply py-1
+    }
+}
+
+input {
+    @apply outline-none bg-transparent border-b-2 border-gray-500
+}
+
+.successInfo {
+    @apply border-green-500 text-green-500
+}
+
+.failureInfo {
+    @apply border-red-500 text-red-500
+}

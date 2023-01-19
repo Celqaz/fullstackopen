@@ -1,7 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {AnecdoteType} from "../../types/types";
 import anecdotesService from "../../services/anecdotesService";
-import {AppDispatch} from "../../app/store";
+import {AppDispatch} from "../../../../notes/src/store";
+
 
 const initialAnecdotes: AnecdoteType[] = []
 
